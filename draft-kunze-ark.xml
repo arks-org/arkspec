@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
@@ -15,20 +15,54 @@
   <!ENTITY rfc2915 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2915.xml'>
   <!ENTITY rfc3986 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3986.xml'>
   <!ENTITY rfc5013 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5013.xml'>
-
 ]>
 
+<!-- Extra statement used by XSLT processors to control the output style. -->
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
-<?rfc strict="yes" ?>
-<?rfc comments="no">
-<?rfc inline="yes"?>
-<?rfc symrefs="yes"?>
-<?rfc toc="yes"?>
 
-<rfc category="info" docName="draft-kunze-ark-latest" ipr="trust200902"
-     submissionType="independent">
+<rfc category="info"
+     docName="draft-kunze-ark-latest"
+     ipr="trust200902">
+
+    <!-- Processing Instructions- PIs (for a complete list and description,
+         see file http://xml.resource.org/authoring/README.html and below. -->
+
+    <!-- Try to enforce the ID-nits conventions and DTD validity. -->
+    <?rfc strict="yes"?>
+    <!-- Items used when reviewing the document -->
+    <?rfc comments="no"?>  <!-- Controls display of <cref> elements. -->
+    <?rfc inline="no"?>    <!-- When no, put comments in end section. -->
+    <!-- When yes, insert editing marks: editing marks consist of a string
+         such as <29> printed in the blank line at the beginning of each
+	 paragraph of text. -->
+    <?rfc editing="no"?>
+    <!-- Create Table of Contents (ToC) and set some options for it. -->
+    <?rfc toc="yes"?>
+    <!-- If "yes" eliminate blank lines before main section entries. -->
+    <?rfc tocompact="yes"?>
+    <!-- Set the number of levels of sections/subsections... in ToC. -->
+    <?rfc tocdepth="3"?>
+
+    <!-- Options for the references. -->
+
+    <!-- Some like symbolic tags in the references (and citations) and others
+         prefer numbers. The RFC Editor always uses symbolic tags.
+         The tags used are the anchor attributes of the references. -->
+    <?rfc symrefs="yes"?>
+    <!-- If "yes", causes the references to be sorted in order of tags.
+         This doesn't have any effect unless symrefs is "yes" also. -->
+    <?rfc sortrefs="yes"?>
+
+    <!-- These two save paper: Just setting compact to "yes" makes savings by
+         not starting each main section on a new page but does not omit the
+	 blank lines between list items. If subcompact is also "yes" the blank
+	 lines between list items are also omitted. -->
+    <?rfc compact="yes" ?>
+    <?rfc subcompact="no" ?>
 
  <front>
+  <!-- The abbreviated title is used in the page header - it is only necessary
+       if the full title is longer than 42 characters -->
   <title abbrev="ARK">
    The ARK Identifier Scheme
   </title>
@@ -65,7 +99,7 @@
    </address>
   </author>
 
-  <date day="13" month="December" year="2021" />
+  <date year="2022" />
 
 <!--
 NB: all elements of date are required for IETF submissions
@@ -109,20 +143,21 @@ Tools exist for minting, binding, and resolving ARKs.
 </t>
   </abstract>
 
+  <note title="Transitional Draft">
+   <t>
+This is a transitional draft. The ARK Alliance Technical Working
+Group (https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group) is in
+the process of revising the ARK spec via a series of Internet-Drafts.
+While the spec is in transition, new implementors should follow
+https://datatracker.ietf.org/doc/html/draft-kunze-ark-18.
+   </t>
+  </note>
+
  </front>
 
  <middle>
 
 <section title="Introduction">
-
-<t>
-[ Note about this transitional draft. The ARK Alliance Technical Working
-Group (https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group) is in
-the process of revising the ARK spec via a series of Internet-Drafts.
-While the spec is in transition, new implementors should follow
-https://datatracker.ietf.org/doc/html/draft-kunze-ark-18.
-]
-</t>
 
 <t>
 This document describes a scheme for the high-quality naming of
@@ -1287,7 +1322,7 @@ possibly proxying.
 </t>
 <t>
 On the web, forwarding is done with HTTP redirects. In general ARK resolution
-on the web involves a chain of one or more redirects that ends when a web 
+on the web involves a chain of one or more redirects that ends when a web
 server in the chain responds without redirecting. That final web server is
 known as the "responder". The "responder" server might actually be a proxy that
 constructs its response by first intiating a separate resolution process

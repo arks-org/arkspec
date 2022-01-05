@@ -1307,34 +1307,55 @@ decoded form.
 
 </section>
 
-<section title="Resolver Chains">
+<section title="Resolver Chains and Roles">
 
 <t>
-There are certain terms used to talk about ARK resolution as described in this
-section. Resolution itself is seen as a computation, consisting of one or more
-stages, that maps a client identifier to some response. The response may take
-on a variety of forms consistent with modern networked information retrieval,
-including the return of a landing page, a metadata record, or a web-based 404
-Not Found message. A minimal form of ARK resolution is a single-stage, direct
-return of a web page without any indirection. Typically, however, ARK
-resolution involves a chain (sequence) of indirection (forwarding), and
-possibly proxying.
+To resolve a Compact ARK (ie, an ARK beginning "ark:") it must initially
+be promoted to a Mapping ARK so that it becomes actionable.
+<!-- (xxx see resolver discovery) -->
+On the web, this means finding a suitable web Resolver Service to prepend
+to the compact form of the identifier in order to convert it to a URL (cf
+<xref target="CURIE"/>).
+(This is more or less true for any type of identifier not already in
+URL form.)
 </t>
 <t>
-On the web, forwarding is done with HTTP redirects. In general ARK resolution
-on the web involves a chain of one or more redirects that ends when a web
-server in the chain responds without redirecting. That final web server is
-known as the "responder". The "responder" server might actually be a proxy that
-constructs its response by first intiating a separate resolution process
-(whether using web protocols or not) unbeknownst to the original client, but
-any such process is invisible to the original client and out of scope for this
-discussion. There may be "resource responder" server for resource requests and
-a different "metadata responder" for metadata requests. ARK resolution starts
-when a client contacts the NMA (server host) found in the original Mapping ARK
-URL. The NMA that is contacted to start things off is known as the "first
-resolver". For example, Mapping for ARKs publicized with the hostname N2T.net,
-that host will be the first resolver. N2T.net redirects to a second resolver,
-such as ark.bnf.fr, but the latter is usually the first resolver for BnF ARKs.
+The identifier's Resolver Service is the first point of contact in
+the resolution process (eg, the NMA in a typical URL). It can be seen as
+the "first resolver" because resolution may involve multiple redirections via a
+chain of resolvers before a resolution response is returned by the last
+resolver (the "responder"). The chain is as long as the number of redirections.
+In particular, when the first resolver is also the last resolver, the chain has
+zero length. Most ARKs using N2T.net as the first resolver will be redirected
+to a second resolver listed in the record for a given ARK's NAAN. For example,
+ARKs bearing the 12148 NAAN (BnF) and the n2t.net NMA (first resolver) might be
+redirected to a second resolver, ark.bnf.fr. Whether n2t.net or ark.bnf.fr
+will be the first resolver depends on what NMA is appears in the ARK at
+the time of resolution. Normally, BnF ARKs are published with the BnF NMA
+(ark.bnf.fr), so most BnF ARKs will not start with n2t.net.
+</t>
+<t>
+Resolution in general can be seen as a multi-stage computation that maps
+a client identifier to some sort of response. On the web, each resolver in the
+chain is an HTTP server; even if the "responder" (last resolver) is a proxy
+server that intiates a non-web sub-resolution process, that is invisible to the
+original client and out of scope for this discussion.
+A web resolution response may take on a variety of forms, including the return
+of a landing page, or a metadata record, or a web-based 404 Not Found message.
+A given response, as well as the specific chain of resolvers traversed, depends
+not only on the identifier, but also on such things as the time, location,
+credentials, and technical platform of the client initiating resolution.
+</t>
+<t>
+Also, for a given identifier, the "responder" (last resolver) for an object
+request may be different from the responder for a metadata request. While
+maintenance of objects and their metadata are often co-located in one
+organization, for technical reasons it is not uncommon that requests for
+objects and metadata are forwarded to different responders. To add credibility
+to a persistence promise, it can be useful to maintain a secondary copy of
+object metadata at an external and publicly visible resolver. For example,
+N2T.net was originally designed to store a secondary copy of metadata for many
+millions of identifiers.
 </t>
 
 </section>
@@ -2314,6 +2335,17 @@ objects.
   </front>
   <format type="HTML"
    target="https://arks.org/specs/" />
+ </reference>
+
+ <reference anchor="CURIE"
+   target="https://www.w3.org/TR/2010/NOTE-curie-20101216/">
+  <front>
+    <title>CURIE Syntax 1.0</title>
+    <author surname="W3C" fullname="W3C Working Group Note" />
+    <date month="December" year="2010" />
+  </front>
+  <format type="HTML"
+   target="https://www.w3.org/TR/2010/NOTE-curie-20101216/" />
  </reference>
 
  <reference anchor="DCKernel"

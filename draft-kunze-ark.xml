@@ -1681,8 +1681,9 @@ Resolver Services that service ARKs issued by the identified NAA.
 The global database is key, and ideally the lookup would be automatic and
 transparent to the user. For this, the current mainstream method is the
 Name-to-Thing (N2T) Resolver <xref target="N2T"/> at n2t.net. It is based on
-a plain text file database containing explanatory comments, so it can also be
-directly inspected by users, for example, to manually find a Resolver Service.
+a plain text <xref target="NAANregistry"/> database containing explanatory
+comments, so it can also be directly inspected by users, for example, to
+manually find a Resolver Service.
 N2T is a reliable, low-cost Resolver Service supported by the ARK Alliance
 that primarily exists to support actionable HTTP-based URLs
 for as long as HTTP is used.  One of its big advantages over the other

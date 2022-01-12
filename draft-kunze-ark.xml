@@ -2550,7 +2550,7 @@ target="NAANregistry"/> database. A query is submitted to DNS
 asking for a list of resolvers that match a given NAAN.  DNS distributes
 the query to the particular DNS servers that can best provide the answer,
 unless the answer can be found more quickly in a local DNS cache as a
-side-effect of a recent query.  Responses come back inside 
+side-effect of a recent query.  Responses come back inside
 NAPTR records.  The normal result is one or more candidate NMAs.
 </t>
 

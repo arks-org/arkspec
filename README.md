@@ -10,7 +10,7 @@ This is the working area for the individual Internet-Draft, "The ARK Identifier 
 
 ## Contributing
 
-See the
+All editing is focused on just one file: draft-kunze-ark.xml. See the
 [guidelines for contributions](https://github.com/arka:arks-org/arkspec/blob//CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
@@ -28,3 +28,16 @@ $ make
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
+## Submitting Drafts to the Official IETF Site
+
+You can do this manually or automatically. The latter uses GitHub Actions
+to manage the process, which you start initiate by pushing a tag to create
+a release. The tag you use has to include the full name of the draft (without
+the ".xml") and ending in the _next_ revision number, XY. So if the latest
+public revision number is 31, the next is 32.
+
+```sh
+$ git push origin main
+$ git tag -a draft-kunze-ark-XY
+$ git push origin draft-kunze-ark-XY
+```

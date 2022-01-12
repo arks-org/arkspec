@@ -2,7 +2,7 @@
 
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
-  <!ENTITY   mdash '&#8212;' >
+  <!ENTITY mdash '&#8212;' >
 
   <!ENTITY rfc0854 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.0854.xml'>
   <!ENTITY rfc1034 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.1034.xml'>
@@ -79,7 +79,7 @@
      <code>94607</code>
      <country>USA</country>
     </postal>
-    <email>jak@ucop.edu</email>
+    <email>jakkbl@gmail.com</email>
    </address>
   </author>
 
@@ -150,6 +150,9 @@ Group (https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group) is in
 the process of revising the ARK spec via a series of Internet-Drafts.
 While the spec is in transition, new implementors should follow
 https://datatracker.ietf.org/doc/html/draft-kunze-ark-18.
+The most visible changes are (a) shortening "ark:/..." to "ark:..."
+(but the old form must always be accepted) and (b) the NMA is not just
+a host or host/port combination, but may be followed by a URL path.
    </t>
   </note>
 
@@ -535,7 +538,7 @@ the string of characters preceding it back to the beginning of the NAAN.
 This string, including the check character itself, is the Check Zone.
 </t>
 
-<texttable title="Examples of base, compact, and fully qualified forms"
+<texttable title="Example base, compact, and fully qualified form components."
     align="center">
 
   <preamble>
@@ -759,7 +762,7 @@ for there to be a succession of organizations that manage an ARK
 namespace.
 </t>
 
-<texttable title="Four NAANs shared across all organizations"
+<texttable title="Four NAANs shared across all ARK-assigning organizations."
     align="center" anchor="sharedNAANs">
   <preamble>
     There are currently four NAANs available to all organizations.
@@ -775,7 +778,7 @@ namespace.
   <ttcol align="center">OK for long term reference?</ttcol>
 
   <c>12345 examples</c>
-  <c>Example ARKs appearing in documentation. They might resolve, but no link checker need be concerned if they don’t. They should not be considered viable for long term reference.</c>
+  <c>Example ARKs appearing in documentation. They might resolve, but link checkers usually need be concerned if they don’t. They should not be considered viable for long term reference.</c>
   <c>maybe</c>
   <c>no</c>
 
@@ -790,7 +793,7 @@ namespace.
   <c>yes</c>
 
   <c>99999 test ids</c>
-  <c>ARKs for test, development, or experimental purposes, often at scale. They might resolve, but no link checker need be concerned if they don’t. They should not be considered viable for long term reference.</c>
+  <c>ARKs for test, development, or experimental purposes, often at scale. They might resolve, but link checkers usually need be concerned if they don’t. They should not be considered viable for long term reference.</c>
   <c>maybe</c>
   <c>no</c>
 
@@ -1658,12 +1661,12 @@ possibilty of developing a future registry of canonical service points
 
 <t>
 In order to derive an actionable identifier (these days, a URL)
-from an ARK, a Resolver Service must be found. The Resolver Service
-consists of an NMA (host or host/port combination), optionally
+from an ARK, a Resolver Service must be found. On the web, the
+Resolver Service consists of a URI scheme and an NMA, where the
+NMA is a host or host/port combination, optionally
 followed by URI-type path components, all ending in a '/'.
-This is a service that is able to respond to basic ARK service requests.
-Relying on registration and client-side discovery, NMAs make known which NAAs'
-identifiers they are willing to service.
+The Resolver Service is expected to respond to basic ARK service requests.
+An NMA may provide mapping services for more than one NAAN.
 </t>
 
 <t>
@@ -2241,15 +2244,14 @@ querying networks and filesystems for Name Mapping Authority services,
 and the concomitant risks from spoofing and obtaining incorrect
 information.  These risks are no greater for ARK mapping authority
 discovery than for other kinds of service discovery.  For example,
-recipients of ARKs with a specified host (NMA) should treat it
-like a URL and be aware that the identified ARK service may no longer
-be operational.
+recipients of ARKs with a specified NMA should treat it like a URL and
+be aware that the identified ARK service may no longer be operational.
 </t>
 
 <t>
 Apart from mapping authority discovery, ARK clients and servers subject
 themselves to all the risks that accompany normal operation of the
-protocols underlying mapping services (e.g., HTTP, Z39.50).  As
+protocols underlying mapping services (e.g., HTTP).  As
 specializations of such protocols, an ARK service may limit exposure to
 the usual risks.  Indeed, ARK services may enhance a kind of security
 by helping users identify long-term reliable references to information
@@ -2526,7 +2528,7 @@ Request Form <xref target="NAANrequest"/>.
 <t>
 To be a clearinghouse for information about ARKs, such as best practices,
 introductory documentation, tutorials, community forums, etc. These
-supplemental resources help ARK implementor in high-level applications across
+supplemental resources help ARK implementors in high-level applications across
 different sectors and disciplines, and with a variety of metadata standards.
 </t>
 <t>
@@ -2542,14 +2544,14 @@ To be a locus of discussion about future versions of the ARK specification.
 <t>
 This subsection introduces an older method for looking up NMAs that is
 based on the method for discovering URN resolvers described in <xref
-target="RFC2915"/>.  It
-relies on querying the DNS system already installed in the background
-infrastructure of most networked computers.  A query is submitted to DNS
+target="RFC2915"/>.  It relies on querying the DNS system for Name Authority
+Pointer (NAPTR) records that mirror the contents of the plain text <xref
+target="NAANregistry"/> database. A query is submitted to DNS
 asking for a list of resolvers that match a given NAAN.  DNS distributes
 the query to the particular DNS servers that can best provide the answer,
 unless the answer can be found more quickly in a local DNS cache as a
-side-effect of a recent query.  Responses come back inside Name Authority
-Pointer (NAPTR) records.  The normal result is one or more candidate NMAs.
+side-effect of a recent query.  Responses come back inside 
+NAPTR records.  The normal result is one or more candidate NMAs.
 </t>
 
 <t>
@@ -2643,7 +2645,7 @@ A Perl script that implements this algorithm is included here.
 </t>
 <figure>
  <artwork>
-#!/depot/bin/perl
+#!/usr/bin/env perl
 
 use Net::DNS;                           # include simple DNS package
 my $qtype = "NAPTR";                    # initialize query type
@@ -2672,11 +2674,6 @@ sub maptr {                             # recursive maptr algorithm
         }
 } </artwork>
 </figure>
-<t>
-The global database thus distributed via DNS and the Maptr algorithm
-can easily be seen to mirror the contents of the Name Authority Table
-file described in the previous section.
-</t>
 
 </section>
 

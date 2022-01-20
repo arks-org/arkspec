@@ -114,12 +114,23 @@ Differencing tool example
 
 <t>
 The ARK (Archival Resource Key) naming scheme is designed to facilitate
-the high-quality and
-persistent identification of information objects. A founding principle
-of the ARK is that persistence is purely a matter of service and is
-neither inherent in an object nor conferred on it by a particular
-naming syntax. The best that an identifier can do is to lead users to
-the services that support robust reference. The term ARK itself refers both
+the high-quality and persistent identification of information objects.
+The label "ark:" marks the start of a core ARK identifier that can be made
+actionable by prepending the beginning of a URL. Meant to be usable after
+today's networking technologies become obsolete, that core should be
+recognizable in the future as a globally unique ARK independent of the URL
+hostname, HTTP, etc. A founding principle of ARKs is that persistence is purely
+a matter of service and neither inherent in an object nor conferred on it by
+a particular naming syntax. The best any identifier can do is lead users to
+services that support robust reference. A full-functioning ARK leads the user
+to the identified object and, with the "?info" inflection appended, returns
+a metadata record and a commitment statement that is both human- and
+machine-readable. Tools exist for minting, binding, and resolving ARKs.
+</t>
+  </abstract>
+
+<!--
+The term ARK itself refers both
 to the scheme and to any single identifier that conforms to it.
 An ARK has five components:
 </t>
@@ -132,6 +143,7 @@ hostname), the "ark:" label, the Name Assigning Authority Number (NAAN),
 the assigned Name, and an optional and possibly mutable Qualifier
 supported by the NMA.  The NAAN and Name together form the immutable
 persistent identifier for the object independent of the URL hostname.
+
 An ARK is a special kind of URL that connects users to three things:
 the named object, its metadata, and the provider's promise about its
 persistence. When entered into the location field of a Web browser,
@@ -141,18 +153,14 @@ is both human- and machine-readable. The returned record contains core
 metadata and a commitment statement from the current provider.
 Tools exist for minting, binding, and resolving ARKs.
 </t>
-  </abstract>
+-->
 
-  <note title="Transitional Draft">
+  <note title="Responsibility for this Document">
    <t>
-This is a transitional draft. The ARK Alliance Technical Working
-Group (https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group) is in
-the process of revising the ARK spec via a series of Internet-Drafts.
-While the spec is in transition, new implementors should follow
-https://datatracker.ietf.org/doc/html/draft-kunze-ark-18.
-The most visible changes are (a) shortening "ark:/..." to "ark:..."
-(but the old form must always be accepted) and (b) the NMA is not just
-a host or host/port combination, but may be followed by a URL path.
+The ARK Alliance Technical Working Group <xref target="ARKAtech"/>
+is responsible for the content of this Internet Draft. The group homepage lists
+monthly meeting notes and agendas starting from March 2019. Revisions of the
+spec are maintained on github at <xref target="ARKdrafts"/>.
    </t>
   </note>
 
@@ -180,17 +188,23 @@ available at <xref target="ARK"/>.
 <t>
 Schemes for persistent identification of network-accessible objects
 are not new.  In the early 1990's, the design of the Uniform Resource
-Name <xref target="RFC2141"/> responded to the observed failure rate of URLs by
-articulating an indirect, non-hostname-based naming scheme and the
-need for responsible name management.  Meanwhile, promoters of the
+Name <xref target="RFC2141"/> responded to the observed failure rate of
+URLs by articulating an indirect, non-hostname-based naming scheme and
+the need for responsible name management.  Meanwhile, promoters of the
 Digital Object Identifier <xref target="DOI"/> succeeded in building
 a community of providers around a mature software system <xref
-target="Handle"/> that supports name
-management.  The Persistent Uniform Resource Locator <xref
-target="PURL"/> was another
-scheme that had the advantage of working with unmodified web
-browsers.  ARKs represent an approach that attempts to build on
-the strengths and to avoid the weaknesses of these schemes.
+target="Handle"/> that supports name management.  The Persistent Uniform
+Resource Locator <xref target="PURL"/> was another scheme that had the
+advantage of working with unmodified web browsers.  ARKs represent an
+approach that attempts to build on the strengths and to avoid the
+weaknesses of these schemes. For example, like URNs, ARKs have an internal
+label ("ark:") to help them be recognizable as globally unique identifiers
+in a post-HTTP Internet. Unlike DOIs and Handles, ARKs can be created without
+centralized fee-based infrastructures. ARK resolvers can take advantage of
+advanced resolution features such as content negotiation (like DOIs) and suffix
+passthrough <xref target="SPT"/> (similar to PURL partial redirects).
+Like PURLs, ARKs openly embrace URLs as the best current choice for
+actionability.
 </t>
 
 <t>
@@ -230,6 +244,15 @@ the preservation community.  It is for this reason that the ARK scheme
 relies only on educated name assignment and light use of general-purpose
 infrastructures that are maintained mostly by the Internet community at
 large (the DNS, web servers, and web browsers).
+</t>
+
+<t>
+As purely a matter of service, persistence is difficult, not known to
+be commercially attractive, and likely to be undertaken by only a small
+fraction of content providers that have preservation in their mission.
+This vision runs counter to some early predictions that technology-backed
+persistent identifiers would somehow become ubiquitous. On the plus side,
+persistent identifier solutions should not need to be "internet scale".
 </t>
 
 <section title="Reasons to Use ARKs">
@@ -1150,6 +1173,10 @@ XXX Say something about ordering
 
 </section>
 
+</section>
+
+<section title="ARK Processing">
+
 <section title="Character Repertoires">
 
 <t>
@@ -1359,6 +1386,103 @@ to a persistence promise, it can be useful to maintain a secondary copy of
 object metadata at an external and publicly visible resolver. For example,
 N2T.net was originally designed to store a secondary copy of metadata for many
 millions of identifiers.
+</t>
+
+</section>
+
+<section title="Finding a Resolver Service">
+
+<t>
+In order to derive an actionable identifier (these days, a URL)
+from an ARK, a Resolver Service must be found. On the web, the
+Resolver Service consists of a URI scheme and an NMA, where the
+NMA is a host or host/port combination, optionally
+followed by URI-type path components, all ending in a '/'.
+The Resolver Service is expected to respond to basic ARK service requests.
+An NMA may provide mapping services for more than one NAAN.
+</t>
+
+<t>
+Upon encountering an ARK, a user (or client software) determines if it is
+a Mapping ARK (ie, it is a URL beginning with a Resolver Service).
+If the Resolver Service is working, this discovery step likely can be
+skipped assuming the URL correctly identifies a working resolver.
+If a new Resolver Service needs to be found, the client looks inside the
+ARK again for the NAAN (Name Assigning Authority Number).
+Querying a global database, it then uses the NAAN to look up all current
+Resolver Services that service ARKs issued by the identified NAA.
+This NAAN-to-NMA resolver discovery method is common (cf URN, Handle, DOI)
+but does not address the namespace splitting problem, which is when a portion
+of a NAAN space originally maintained entirely by one NMA is taken on by
+a second NMA; now the NAAN alone cannot reveal which NMA (resolver) to choose.
+</t>
+
+<t>
+The global database is key, and ideally the lookup would be automatic and
+transparent to the user. For this, the current mainstream method is the
+Name-to-Thing (N2T) Resolver <xref target="N2T"/> at n2t.net. It is based on
+a plain text <xref target="NAANregistry"/> database containing explanatory
+comments, so it can also be directly inspected by users, for example, to
+manually find a Resolver Service. N2T is a reliable, low-cost Resolver Service
+provided by the ARK Alliance primarily to support actionable HTTP-based URLs
+for as long as HTTP is used. N2T scales to store and resolve over 100 million
+individual identifiers and their metadata, and has played a valuable role in
+persistent identification by keeping a redundant copy of identifier metadata.
+Because it has the option of storing redirection information for individual
+identifiers rather than just at the name assigning authority level, N2T can
+deal with namespace splitting; when a portion of a NAAN space maintained by one
+NMA is taken on by a second NMA, N2T can rely on individual identifier
+redirects for that portion and a single NAAN-based rule for the remainder.
+</t>
+
+<t>
+An appendix describes an historical way to discover an NMA based on a
+simplification of the URN resolver discovery method, itself very similar
+in principle to the resolver discovery method used by Handles and DOIs.
+None of these methods does more than what can be done with a very small,
+consortially maintained web server such as <xref target="N2T"/>.
+</t>
+
+<t>
+In the interests of long-term persistence, however, ARK mechanisms are
+first defined in high-level, protocol-independent terms so that
+mechanisms may evolve and be replaced over time without compromising
+fundamental service objectives.  Either or both specific methods given
+here may eventually be supplanted by better methods since, by design,
+the ARK scheme does not depend on a particular method, but only on having
+some method to locate an active NMA.
+</t>
+
+<t>
+At the time of issuance, at least one NMA for an ARK should be
+prepared to service it.  That NMA may or may not be administered by the
+Name Assigning Authority (NAA) that created it.  Consider the following
+hypothetical example of providing long-term access to a cancer research
+journal.  The publisher wishes to turn a profit and a national library
+wishes to preserve the scholarly
+record.  An agreement might be struck whereby the publisher would act
+as the NAA and the national library would archive
+the journal issue when it appears, but without providing direct access
+for the first six months.  During the first six months of peak
+commercial viability, the publisher would retain exclusive delivery
+rights and would charge access fees.  Again, by agreement, both the
+library and the publisher would act as NMAs, but during that initial
+period the library would redirect requests for issues less than six
+months old to the publisher.  At the end of the waiting period, the
+library would then begin servicing requests for issues older than six
+months by tapping directly into its own archives.  Meanwhile, the
+publisher might routinely redirect incoming requests for older issues
+to the library.  Long-term access is thereby preserved, and so is the
+commercial incentive to publish content.
+</t>
+
+<t>
+Although it will be common for an NAA also to run an NMA service,
+it is never a requirement.  Over time NAAs and NMAs will come and go.
+One NMA will succeed another, and there might be
+many NMAs serving the same ARKs simultaneously (e.g., as mirrors or as
+competitors).  There might also be asymmetric but coordinated NMAs as
+in the library-publisher example above.
 </t>
 
 </section>
@@ -1654,100 +1778,6 @@ possibilty of developing a future registry of canonical service points
 </t>
 
 </section>
-
-</section>
-
-<section title="Finding a Resolver Service">
-
-<t>
-In order to derive an actionable identifier (these days, a URL)
-from an ARK, a Resolver Service must be found. On the web, the
-Resolver Service consists of a URI scheme and an NMA, where the
-NMA is a host or host/port combination, optionally
-followed by URI-type path components, all ending in a '/'.
-The Resolver Service is expected to respond to basic ARK service requests.
-An NMA may provide mapping services for more than one NAAN.
-</t>
-
-<t>
-Upon encountering an ARK, a user (or client software) determines if it is
-a Mapping ARK (ie, it is a URL beginning with a Resolver Service).
-If the Resolver Service is working, this discovery step likely can be
-skipped assuming the URL correctly identifies a working resolver.
-If a new Resolver Service needs to be found, the client looks inside the
-ARK again for the NAAN (Name Assigning Authority Number).
-Querying a global database, it then uses the NAAN to look up all current
-Resolver Services that service ARKs issued by the identified NAA.
-</t>
-
-<t>
-The global database is key, and ideally the lookup would be automatic and
-transparent to the user. For this, the current mainstream method is the
-Name-to-Thing (N2T) Resolver <xref target="N2T"/> at n2t.net. It is based on
-a plain text <xref target="NAANregistry"/> database containing explanatory
-comments, so it can also be directly inspected by users, for example, to
-manually find a Resolver Service.
-N2T is a reliable, low-cost Resolver Service supported by the ARK Alliance
-that primarily exists to support actionable HTTP-based URLs
-for as long as HTTP is used.  One of its big advantages over the other
-two methods and the URN, Handle, DOI, and PURL methods, is that N2T
-can address the namespace splitting problem because it has the option
-of storing redirection information for individual identifiers rather than
-just at the name assigning authority level.  When objects maintained by
-one NMA are inherited by more than one successor NMA, this avoids requiring
-one of those successors to maintain forwarding tables on behalf of the other
-successors.
-</t>
-
-<t>
-An appendix describes an historical way to discover an NMA based on a
-simplification of the URN resolver discovery method, itself very similar
-in principle to the resolver discovery method used by Handles and DOIs.
-None of these methods does more than what can be done with a very small,
-consortially maintained web server such as <xref target="N2T"/>.
-</t>
-
-<t>
-In the interests of long-term persistence, however, ARK mechanisms are
-first defined in high-level, protocol-independent terms so that
-mechanisms may evolve and be replaced over time without compromising
-fundamental service objectives.  Either or both specific methods given
-here may eventually be supplanted by better methods since, by design,
-the ARK scheme does not depend on a particular method, but only on having
-some method to locate an active NMA.
-</t>
-
-<t>
-At the time of issuance, at least one NMA for an ARK should be
-prepared to service it.  That NMA may or may not be administered by the
-Name Assigning Authority (NAA) that created it.  Consider the following
-hypothetical example of providing long-term access to a cancer research
-journal.  The publisher wishes to turn a profit and a national library
-wishes to preserve the scholarly
-record.  An agreement might be struck whereby the publisher would act
-as the NAA and the national library would archive
-the journal issue when it appears, but without providing direct access
-for the first six months.  During the first six months of peak
-commercial viability, the publisher would retain exclusive delivery
-rights and would charge access fees.  Again, by agreement, both the
-library and the publisher would act as NMAs, but during that initial
-period the library would redirect requests for issues less than six
-months old to the publisher.  At the end of the waiting period, the
-library would then begin servicing requests for issues older than six
-months by tapping directly into its own archives.  Meanwhile, the
-publisher might routinely redirect incoming requests for older issues
-to the library.  Long-term access is thereby preserved, and so is the
-commercial incentive to publish content.
-</t>
-
-<t>
-Although it will be common for an NAA also to run an NMA service,
-it is never a requirement.  Over time NAAs and NMAs will come and go.
-One NMA will succeed another, and there might be
-many NMAs serving the same ARKs simultaneously (e.g., as mirrors or as
-competitors).  There might also be asymmetric but coordinated NMAs as
-in the library-publisher example above.
-</t>
 
 </section>
 
@@ -2305,6 +2335,28 @@ objects.
    target="https://arks.org" />
  </reference>
 
+ <reference anchor="ARKAtech"
+   target="https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group">
+  <front>
+    <title>ARK Alliance Technical Working Group</title>
+    <author fullname="ARK Alliance" />
+    <date year="2022" />
+  </front>
+  <format type="HTML"
+   target="https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group" />
+ </reference>
+
+ <reference anchor="ARKdrafts"
+   target="https://github.com/arks-org/arkspec">
+  <front>
+    <title>ARK Drafts Repository</title>
+    <author fullname="ARK Alliance" />
+    <date year="2022" />
+  </front>
+  <format type="HTML"
+   target="https://github.com/arks-org/arkspec" />
+ </reference>
+
  <reference anchor="ARKspecs"
    target="https://arks.org/specs/">
   <front>
@@ -2499,6 +2551,17 @@ objects.
  &rfc5013; <!-- Dublin Core -->
 
 <!-- XXX link to expired draft-->
+ <reference anchor="SPT"
+   target="http://n2t.net/e/suffix_passthrough.html">
+  <front>
+    <title>What is Suffix Passthrough?</title>
+    <author initials="J." surname="Kunze" fullname="John Kunze" />
+    <date month="May" year="2021" />
+  </front>
+  <format type="HTML"
+   target="http://n2t.net/e/suffix_passthrough.html" />
+ </reference>
+
  <reference anchor="THUMP"
    target="https://www.ietf.org/archive/id/draft-kunze-thump-03.txt">
   <front>
@@ -2507,7 +2570,7 @@ objects.
     <author initials="J." surname="Kunze" fullname="John Kunze" />
     <date month="August" year="2007" />
   </front>
-  <format type="PDF"
+  <format type="TXT"
    target="https://www.ietf.org/archive/id/draft-kunze-thump-03.txt" />
  </reference>
 

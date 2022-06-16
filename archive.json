@@ -1,0 +1,91 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-06-16T01:11:38.397754+00:00",
+  "repo": "arks-org/arkspec",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOGnqRK84w0Bcs",
+      "title": "Update draft-kunze-ark.xml",
+      "url": "https://github.com/arks-org/arkspec/pull/1",
+      "state": "MERGED",
+      "author": "jkunze",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-01-11T17:29:46Z",
+      "updatedAt": "2022-01-11T17:43:50Z",
+      "baseRepository": "arks-org/arkspec",
+      "baseRefName": "main",
+      "baseRefOid": "9085a263f56ee035b4f1c3110bab89fcb5ffdb9e",
+      "headRepository": "jkunze/arkspec",
+      "headRefName": "patch-1",
+      "headRefOid": "a4bfce81c9976fa3d7a054b9b10dc4c35ac8f98e",
+      "closedAt": "2022-01-11T17:43:50Z",
+      "mergedAt": "2022-01-11T17:43:49Z",
+      "mergedBy": "arks-org",
+      "mergeCommit": {
+        "oid": "a81b4479cb1d957e0d2564df7216e674bb22132a"
+      },
+      "comments": [
+        {
+          "author": "vphill",
+          "authorAssociation": "NONE",
+          "body": "this change looks great. ",
+          "createdAt": "2022-01-11T17:30:30Z",
+          "updatedAt": "2022-01-11T17:30:30Z"
+        }
+      ],
+      "reviews": []
+    }
+  ]
+}

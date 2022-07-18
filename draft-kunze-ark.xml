@@ -107,7 +107,7 @@ NB: all elements of date are required for IETF submissions
 Submission form at https://datatracker.ietf.org/idst/upload.cgi
    creates for example https://tools.ietf.org/html/draft-kunze-ark-18
 Differencing tool example
-   https://www.ietf.org/rfcdiff?url1=draft-kunze-ark-29.txt&url2=draft-kunze-ark-28.txt
+   https://www.ietf.org/rfcdiff?url1=draft-kunze-ark-33.txt&url2=draft-kunze-ark-34.txt
 -->
 
   <abstract>
@@ -1358,10 +1358,10 @@ resolver (the "responder"). The chain is as long as the number of redirections.
 In particular, when the first resolver is also the last resolver, the chain has
 zero length. Most ARKs using N2T.net as the first resolver will be redirected
 to a second resolver listed in the record for a given ARK's NAAN. For example,
-ARKs bearing the 12148 NAAN (BnF) and the n2t.net NMA (first resolver) might be
-redirected to a second resolver, ark.bnf.fr. Whether n2t.net or ark.bnf.fr
-will be the first resolver depends on what NMA is appears in the ARK at
-the time of resolution. Normally, BnF ARKs are published with the BnF NMA
+an ARK bearing the NAAN 12148 (BnF) and the NMA n2t.net (as its first resolver)
+could be redirected to a second resolver, ark.bnf.fr. Whether n2t.net or
+ark.bnf.fr will be the first resolver depends on what NMA appears in the ARK
+at the time of resolution. Currently, BnF ARKs are published with the BnF's NMA
 (ark.bnf.fr), so most BnF ARKs will not start with n2t.net.
 </t>
 <t>

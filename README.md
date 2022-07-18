@@ -25,14 +25,22 @@ Formatted text and HTML versions of the draft can be built using `make`.
 $ make
 ```
 
+Review the formatted versions in the usual ways, such as,
+
+```sh
+$ more draft-kunze-ark-35.txt         # open with text-based pager
+$ open draft-kunze-ark-35.html        # open with local web browser
+```
+
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
 ## Submitting Drafts to the Official IETF Site
 
 You can do this manually or automatically. The latter uses GitHub Actions
-to manage the process, which you start initiate by pushing a tag to create
-a release. The tag you use has to include the full name of the draft (without
+to manage the process, which you initiate by committing and pushing the
+post-review draft, then pushing a tag to create a release.
+The tag you use has to include the full name of the draft (without
 the ".xml") and ending in the _next_ revision number, XY. So if the latest
 public revision number is 31, the next is 32.
 

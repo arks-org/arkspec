@@ -2683,21 +2683,21 @@ record that does not have "ark" for the service field.
 
 <t>
 All remaining records with a flags fields of "h" contain candidate
-NMAs in their replacement fields.  Set them aside, if any.
+NMAs in their replacement fields. Set them aside, if any.
 </t>
 
 <t>
 Any record with an empty flags field ("") has a replacement field
 containing a new domain name to which a subsequent query should be
-redirected.  For each such record, set query=&lt;replacement&gt; then go to
-step (2).  When all such records have been recursively exhausted,
+redirected. For each such record, set query=&lt;replacement&gt; then go to
+step (2). When all such records have been recursively exhausted,
 go to step (5).
 </t>
 
 <t>
 All redirected queries have been resolved and a set of candidate
-NMAs has been accumulated from steps (3).  If there are zero NMAs,
-exit &mdash; no mapping authority was found.  If there is one or more NMA,
+NMAs has been accumulated from steps (3). If there are zero NMAs,
+exit &mdash; no mapping authority was found. If there is one or more NMA,
 choose one using any criteria you wish, then exit.
 </t>
 </list>

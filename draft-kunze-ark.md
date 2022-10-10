@@ -26,10 +26,6 @@ keyword:
  - archive
 
 venue:
-#  group: WG
-#  type: Working Group
-#  mail: WG@example.com
-#  arch: https://example.com/WG
   github: "arks-org/arkspec"
   latest: "https://arks-org.github.io/arkspec/draft-ark-spec.html"
 

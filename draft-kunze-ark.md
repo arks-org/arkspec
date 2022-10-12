@@ -1982,7 +1982,7 @@ information objects.
 
 --- back
 
-# Appendix A. ARK Maintenance Agency: arks.org
+# ARK Maintenance Agency: arks.org
 
 The ARK Maintenance Agency [ARKagency] at arks.org has several
 functions.
@@ -2000,7 +2000,7 @@ functions.
 *  To be a locus of discussion about future versions of the ARK
   specification.
 
-# Appendix B.  Looking up NMAs Distributed via DNS
+# Looking up NMAs Distributed via DNS
 
 This subsection introduces an older method for looking up NMAs that
 is based on the method for discovering URN resolvers described in

@@ -35,6 +35,19 @@ $ open draft-kunze-ark-35.html        # open with local web browser
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
+Note: For building locally on my Mac it was necessary to manually install the Ruby dependencies. 
+Run `make` from the root folder once. It will install a bunch of dependencies and will 
+likely fail when trying to run `kramdown-rfc`. When that happens, run the following to install
+the remaining dependencies:
+
+```sh
+export BUNDLE_PATH="$(pwd)/lib/.gems"
+export PATH="${BUNDLE_PATH}/bin:${PATH}"
+bundle install --gemfile="$(pwd)/lib/Gemfile"
+```
+
+Running `make` then worked as expected.
+
 ## Submitting Drafts to the Official IETF Site
 
 You can do this manually or automatically. The latter uses GitHub Actions

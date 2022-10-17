@@ -649,7 +649,7 @@ just one information object:
 
 
 ~~~
-    http://example.org/rslvr/ark:12345/x6np1wh8k
+   http://example.org/rslvr/ark:12345/x6np1wh8k
         https://example.com/ark:12345/x6np1wh8k
                             ark:12345/x6np1wh8k
 ~~~
@@ -717,7 +717,7 @@ two ARKs are equivalent:
 
 ~~~
     ark:/12345/x6np1wh8k
-    ark:12345/x6np1wh8k
+     ark:12345/x6np1wh8k
 ~~~
 
 In a URL found in the wild, the label indicates that the URL stands a
@@ -1119,7 +1119,7 @@ purposes of comparison and ARK service access:
 
 ~~~
                               ark:12345/x5-4-xz-321
-    https://sneezy.dopey.com/ark:12345/x54--xz32-1
+     https://sneezy.dopey.com/ark:12345/x54--xz32-1
                               ark:12345/x54xz321
 ~~~
 
@@ -1780,11 +1780,11 @@ lines (1 and 19) correspond to the client's steps to start the TCP
 session and the server's steps to end it, respectively.
 
 ~~~
-1  C: [opens session]
+ 1  C: [opens session]
     C: GET https://n2t.net/ark:67531/metadc107835?info HTTP/1.1
     C:
     S: HTTP/1.1 200 OK
-5  S: Content-Type: text/plain
+ 5  S: Content-Type: text/plain
     S: THUMP-Status: 0.6 200 OK
     S: Link: </ark:67531/metadc107835> rel="describes";
     S:
@@ -2028,9 +2028,9 @@ algorithm.
 12026.ark.arpa.
 ;; US Library of Congress
 ;;       order pref flags service regexp  replacement
-IN NAPTR  0     0   "h"  "ark"   "USLC"  lhc.nlm.nih.gov:8080
-IN NAPTR  0     0   "h"  "ark"   "USLC"  foobar.zaf.org
-IN NAPTR  0     0   "h"  "ark"   "USLC"  sneezy.dopey.com
+ IN NAPTR  0     0   "h"  "ark"   "USLC"  lhc.nlm.nih.gov:8080
+ IN NAPTR  0     0   "h"  "ark"   "USLC"  foobar.zaf.org
+ IN NAPTR  0     0   "h"  "ark"   "USLC"  sneezy.dopey.com
 ~~~
 
 All the fields are held constant for Maptr except for the "flags",
@@ -2056,7 +2056,7 @@ name.  It looks like this.
 12345.ark.arpa.
 ;; Digital Library Consortium
 ;;       order pref flags service regexp replacement
-IN NAPTR  0     0    ""  "ark"     ""   dlc.spct.org.
+ IN NAPTR  0     0    ""  "ark"     ""   dlc.spct.org.
 ~~~
 
 Here is the Maptr algorithm for ARK mapping authority discovery.  In

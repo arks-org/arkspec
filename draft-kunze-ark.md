@@ -12,7 +12,7 @@ docname: draft-kunze-ark-latest
 ipr: trust200902
 submissiontype: IETF
 date: 2022
-concensus: true
+consensus: true
 pi:
   strict: yes
   comments: no

@@ -10,12 +10,12 @@ This is the working area for the individual Internet-Draft, "The ARK Identifier 
 
 ## Contributing
 
-All editing is focused on just one file: draft-kunze-ark.xml. See the
+All editing is focused on just one file: draft-kunze-ark.md (formerly .xml).
+See the
 [guidelines for contributions](https://github.com/arka:arks-org/arkspec/blob//CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
-
 
 ## Command Line Usage
 
@@ -32,13 +32,22 @@ $ more draft-kunze-ark-35.txt         # open with text-based pager
 $ open draft-kunze-ark-35.html        # open with local web browser
 ```
 
+If things get stuck in a weird state, other "make" targets may help
+to get them unstuck:
+
+```sh
+$ make diff
+$ make lint
+```
+
+See [features](https://github.com/martinthomson/i-d-template/blob/main/doc/FEATURES.md)] for more.
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
-Note: For building locally on my Mac it was necessary to manually install the Ruby dependencies. 
-Run `make` from the root folder once. It will install a bunch of dependencies and will 
-likely fail when trying to run `kramdown-rfc`. When that happens, run the following to install
-the remaining dependencies:
+Note: For building locally on my Mac it was necessary to manually install the
+Ruby dependencies. Run `make` from the root folder once. It will install
+a bunch of dependencies and will likely fail when trying to run `kramdown-rfc`.
+When that happens, run the following to install the remaining dependencies:
 
 ```sh
 export BUNDLE_PATH="$(pwd)/lib/.gems"
@@ -54,10 +63,11 @@ You can do this manually or automatically. The latter uses GitHub Actions
 to manage the process, which you initiate by committing and pushing the
 post-review draft, then pushing a tag to create a release.
 The tag you use has to include the full name of the draft (without
-the ".xml") and ending in the _next_ revision number, XY. So if the latest
-public revision number is 31, the next is 32.
+the ".md" or ".xml") and ending in the _next_ revision number, XY. So if the
+latest public revision number is 31, the next is 32.
 
 ```sh
+$ git commit -m "cold fusion fixed"
 $ git push origin main
 $ git tag -a draft-kunze-ark-XY
 $ git push origin draft-kunze-ark-XY

@@ -38,22 +38,18 @@ author:
   -
     ins: J. Kunze
     name: John A. Kunze
-    org: California Digital Library
-    street: 1111 Franklin Street
-    city: Oakland
-    code: 94607
-    region: CA
+    org: Ronin Institute
     country: USA
     email: "jakkbl@gmail.com"
   -
     ins: "E. Bermès"
     name: "Emmanuelle Bermès"
-    org: "Bibliothèque nationale de France"
-    street: "Quai François Mauriac"
+    org: "École nationale des Chartes"
+    street: "65 Rue de Richelieu"
     city: Paris
-    code: 75706
+    code: 75002
     country: France
-    email: "emmanuelle.bermes@bnf.fr"
+    email: "emmanuelle.bermes@chartes.psl.eu"
 
 informative:
   RFC2616:
@@ -175,7 +171,7 @@ informative:
         org: ARKs.org
     title: "NAAN Registry"
     date: 2019
-    target: https://arks.org/e/pub/naan_registry.txt
+    target: https://n2t.net/e/pub/naan_registry.txt
   NAANrequest:
     author:
       -

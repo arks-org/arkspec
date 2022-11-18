@@ -897,7 +897,7 @@ example,
     https://example.org/ark:12345/x6np1wh8k/c3/s5.v7.xsl
 ~~~
 
-the string "/s3/f8" is a ComponentPath and the string ".v05.tiff" is
+the string "/c3/s5" is a ComponentPath and the string ".v7.xsl" is
 a VariantPath.  The ARK Qualifier is a formalization of some
 currently mainstream URL syntax conventions.  This formalization
 specifically reserves meanings that permit recipients to make strong

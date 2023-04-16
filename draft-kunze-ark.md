@@ -11,7 +11,7 @@ wg: Network Working Group
 docname: draft-kunze-ark-latest
 ipr: trust200902
 submissiontype: IETF
-date: 2022
+date: 2023
 consensus: true
 pi:
   strict: yes
@@ -780,17 +780,17 @@ namespace, a NAAN is never re-registered.  It is possible, however,
 for there to be a succession of organizations that manage an ARK
 namespace.
 
-There are currently four NAANs available to all organizations.  An
-ARK bearing one of these NAANs carries a specific, immutable meaning
-that recipients can rely on for long term pragmatic benefit as
-described below.
+There are currently four NAANs available for assignment on reserved shoulders
+(see the Shoulder section) by all organizations.  An ARK bearing one of these
+NAANs carries a specific, immutable meaning that recipients can rely on for
+long term pragmatic benefit as described below.
 
 |  Shared  NAAN meaning | The immutable purpose, meaning, or connotation of ARKs bearing this NAAN. |  Expect to resolve? |   OK for long term reference?  |
 |:---------|:-------------------------------|:---------|:-----------|
 | `12345` examples | Example ARKs appearing in documentation. They might resolve, but link checkers usually need not be concerned if they don't. They should not be considered viable for long term reference.   | maybe | no |
 | `99152` terms | ARKs for controlled vocabulary and ontology terms, such as metadata element names and pick-list values. They should resolve to term definitions and are suitable for long term reference. | yes | yes |
 | `99166` agents | ARKs for people, groups, and institutions as "agents" (actors, such as creators, contributors, publishers, performers, etc). They should resolve to agent definitions and are suitable for long term reference. | yes | yes |
-| `99999` test ids | ARKs for test, development, or experimental purposes, often at scale. They might resolve, but link checkers usually need be concerned if they don't. They should not be considered viable for  long term reference. | maybe | no |
+| `99999` test ids | ARKs for test, development, or experimental purposes, often at scale. They might resolve, but link checkers usually need not be concerned if they don't. They should not be considered viable for long term reference. | maybe | no |
 {: title="Four NAANs shared across all ARK-assigning organizations."}
 
 To make use of a shared NAAN, an organization has several options

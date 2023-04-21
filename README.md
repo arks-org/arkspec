@@ -2,17 +2,17 @@
 
 This is the working area for the individual Internet-Draft, "The ARK Identifier Scheme".
 
-* [Editor's Copy](https://arka:arks-org.github.io/arkspec/#go.draft-kunze-ark.html)
+* [Editor's Copy](https://arks-org.github.io/arkspec/#go.draft-kunze-ark.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-kunze-ark)
 * [Individual Draft](https://datatracker.ietf.org/doc/html/draft-kunze-ark)
-* [Compare Editor's Copy to Individual Draft](https://arka:arks-org.github.io/arkspec/#go.draft-kunze-ark.diff)
+* [Compare Editor's Copy to Individual Draft](https://arks-org.github.io/arkspec/#go.draft-kunze-ark.diff)
 
 
 ## Contributing
 
 All editing is focused on just one file: draft-kunze-ark.md (formerly .xml).
 See the
-[guidelines for contributions](https://github.com/arka:arks-org/arkspec/blob//CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/arks-org/arkspec/blob//CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
@@ -40,7 +40,7 @@ $ make diff
 $ make lint
 ```
 
-See [features](https://github.com/martinthomson/i-d-template/blob/main/doc/FEATURES.md)] for more.
+See [features](https://github.com/martinthomson/i-d-template/blob/main/doc/FEATURES.md) for more.
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
@@ -67,6 +67,7 @@ the ".md" or ".xml") and ending in the _next_ revision number, XY. So if the
 latest public revision number is 31, the next is 32.
 
 ```sh
+$ make
 $ git commit -m "cold fusion fixed"
 $ git push origin main
 $ git tag -a draft-kunze-ark-XY

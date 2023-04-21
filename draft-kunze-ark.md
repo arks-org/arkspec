@@ -729,6 +729,12 @@ Assigning Authority (NAA) had some sort of hopes for it, but it
 doesn't tell you whether that NAA is still in existence, or whether a
 decade ago it ceased to have any responsibility for providing
 persistence, or whether it ever had any responsibility beyond naming.
+An NAA identifies an autonomous assignment stream for a set of objects
+as well as a reference to help locate a resolver for them.
+Often, NAA policies and practices reflect an organization (department,
+project, data center, periodical, etc.) in which it is embedded.
+An organization may have more than one NAA, for example, a publisher
+may have a distinct NAA for each of its three journals.
 
 Only a current provider can say for certain what sort of commitment
 it intends, and the ARK label suggests that you can query the NMA

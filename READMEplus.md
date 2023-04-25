@@ -50,9 +50,9 @@ a bunch of dependencies and will likely fail when trying to run `kramdown-rfc`.
 When that happens, run the following to install the remaining dependencies:
 
 ```sh
-export BUNDLE_PATH="$(pwd)/lib/.gems"
-export PATH="${BUNDLE_PATH}/bin:${PATH}"
-bundle install --gemfile="$(pwd)/lib/Gemfile"
+$ export BUNDLE_PATH="$(pwd)/lib/.gems"
+$ export PATH="${BUNDLE_PATH}/bin:${PATH}"
+$ bundle install --gemfile="$(pwd)/lib/Gemfile"
 ```
 
 Running `make` then worked as expected.
@@ -72,4 +72,19 @@ $ git commit -m "cold fusion fixed"
 $ git push origin main
 $ git tag -a draft-kunze-ark-XY
 $ git push origin draft-kunze-ark-XY
+```
+
+## Updating the actions
+
+If there's a change of author email, draft title, or draft filename, you must
+manually run the "Update generated files" (update.yml) workflow at github.
+This workflow, which does not run automatically, will update other workflows
+and will overwrite any customizations made to the files
+
+```sh
+README.md
+CONTRIBUTING.md
+.note.xml
+.github/CODEOWNERS
+Makefile
 ```

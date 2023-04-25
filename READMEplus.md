@@ -76,10 +76,14 @@ $ git push origin draft-kunze-ark-XY
 
 ## Updating the actions
 
-If there's a change of author email, draft title, or draft filename, you must
-manually run the "Update generated files" (update.yml) workflow at github.
-This workflow, which does not run automatically, will update other workflows
-and will overwrite any customizations made to the files
+To update the actions to a newer version, or if there's a change of author
+email, draft title, or draft filename, manually run
+
+```sh
+$ make update-files
+```
+
+which can overwrite any customizations made to the files
 
 ```sh
 README.md

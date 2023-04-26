@@ -74,6 +74,9 @@ $ git tag -a draft-kunze-ark-XY
 $ git push origin draft-kunze-ark-XY
 ```
 
+You can also track the IETF
+[submission status](https://datatracker.ietf.org/submit/status/).
+
 ## Updating the actions
 
 To update the actions to a newer version, or if there's a change of author

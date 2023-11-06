@@ -1,9 +1,4 @@
 ---
-# Note: trailing whitespace in front matter properties will cause
-#       errors in the kramdown-rfc parser. Even in comments!
-#
-# kramdown-rfc described here: https://github.com/cabo/kramdown-rfc
-#
 title: "The ARK Identifier Scheme"
 abbrev: "ARK"
 category: info
@@ -29,6 +24,7 @@ v: 3
 keyword:
  - identifier
  - archive
+ - PID
 
 venue:
   github: "arks-org/arkspec"
@@ -64,7 +60,7 @@ informative:
   RFC2915:
 
   DOI:
-    target: https://dx.doi.org/10.1000/203
+    target: https://doi.org/10.1000/203
     title: "The Digital Object Identifier (DOI) System"
     author:
       org: "I. D. Foundation"
@@ -192,7 +188,7 @@ informative:
         name: John Kunze
     title: "Nice Opaque Identifiers"
     date: 2006-04
-    target: https://metacpan.org/pod/distribution/Noid/noid
+    target: https://metacpan.org/dist/Noid/view/noid
   PStatements:
     author:
       -
@@ -233,6 +229,14 @@ informative:
 
 --- abstract
 
+<!--
+  # Note: trailing whitespace in front matter properties will cause
+  #       errors in the kramdown-rfc parser. Even in comments!
+  #
+  # kramdown-rfc described here: https://github.com/cabo/kramdown-rfc
+  #
+-->
+
 The ARK (Archival Resource Key) naming scheme is designed to
 facilitate the high-quality and persistent identification of
 information objects.  The label "ark:" marks the start of a core ARK
@@ -248,7 +252,6 @@ ARK leads the user to the identified object and, with the "?info"
 inflection appended, returns a metadata record and a commitment
 statement that is both human- and machine-readable.  Tools exist for
 minting, binding, and resolving ARKs.
-
 
 Responsibility for this Document
 

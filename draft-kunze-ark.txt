@@ -5,8 +5,8 @@
 Network Working Group                                           J. Kunze
 Internet-Draft                                           Ronin Institute
 Intended status: Informational                                 E. Bermès
-Expires: 28 October 2023                     École nationale des Chartes
-                                                           26 April 2023
+Expires: 9 May 2024                          École nationale des Chartes
+                                                         6 November 2023
 
 
                        The ARK Identifier Scheme
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 October 2023.
+   This Internet-Draft will expire on 9 May 2024.
 
 Copyright Notice
 
@@ -1868,7 +1868,7 @@ Table of Contents
               Group", 20012008, <https://dublincore.org/groups/kernel/>.
 
    [DOI]      I. D. Foundation, "The Digital Object Identifier (DOI)
-              System", February 2001, <https://dx.doi.org/10.1000/203>.
+              System", February 2001, <https://doi.org/10.1000/203>.
 
    [ERC]      Kunze, J. and A. Turner, "Kernel Metadata and Electronic
               Resource Citations", October 2007,
@@ -1899,7 +1899,7 @@ Table of Contents
               ma05_archive.html>.
 
    [NOID]     Kunze, J., "Nice Opaque Identifiers", April 2006,
-              <https://metacpan.org/pod/distribution/Noid/noid>.
+              <https://metacpan.org/dist/Noid/view/noid>.
 
    [PStatements]
               Kunze, J., "Persistence statements: describing digital

@@ -1,0 +1,203 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-02-08T00:50:26.231762+00:00",
+  "repo": "arks-org/arkspec",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOGnqRK84w0Bcs",
+      "title": "Update draft-kunze-ark.xml",
+      "url": "https://github.com/arks-org/arkspec/pull/1",
+      "state": "MERGED",
+      "author": "jkunze",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-01-11T17:29:46Z",
+      "updatedAt": "2022-01-11T17:43:50Z",
+      "baseRepository": "arks-org/arkspec",
+      "baseRefName": "main",
+      "baseRefOid": "9085a263f56ee035b4f1c3110bab89fcb5ffdb9e",
+      "headRepository": "jkunze/arkspec",
+      "headRefName": "patch-1",
+      "headRefOid": "a4bfce81c9976fa3d7a054b9b10dc4c35ac8f98e",
+      "closedAt": "2022-01-11T17:43:50Z",
+      "mergedAt": "2022-01-11T17:43:49Z",
+      "mergedBy": "arks-org",
+      "mergeCommit": {
+        "oid": "a81b4479cb1d957e0d2564df7216e674bb22132a"
+      },
+      "comments": [
+        {
+          "author": "vphill",
+          "authorAssociation": "NONE",
+          "body": "this change looks great. ",
+          "createdAt": "2022-01-11T17:30:30Z",
+          "updatedAt": "2022-01-11T17:30:30Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOGnqRK85AqACT",
+      "title": "Md migrate",
+      "url": "https://github.com/arks-org/arkspec/pull/2",
+      "state": "MERGED",
+      "author": "datadavev",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Conversion of the xml source to markdown. Content is unchanged though requires some review before publishing. In particular:\r\n\r\n- [ ] Review references and distinguish informative vs. normative\r\n- [ ] Ensure internal cross-references are ok",
+      "createdAt": "2022-10-12T14:03:51Z",
+      "updatedAt": "2022-10-17T18:30:25Z",
+      "baseRepository": "arks-org/arkspec",
+      "baseRefName": "main",
+      "baseRefOid": "571913594538081b84cfb36df075c2483b8bc532",
+      "headRepository": "datadavev/arkspec",
+      "headRefName": "md-migrate",
+      "headRefOid": "6772d3f67ce35d219f4c82cf291ba21153b177f3",
+      "closedAt": "2022-10-17T18:30:25Z",
+      "mergedAt": "2022-10-17T18:30:25Z",
+      "mergedBy": "jkunze",
+      "mergeCommit": {
+        "oid": "e462b6dfb605ac2a261f1c0a5d68fa90208457b4"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOGnqRK85CcOPX",
+      "title": "fix link",
+      "url": "https://github.com/arks-org/arkspec/pull/3",
+      "state": "MERGED",
+      "author": "dwinston",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-11-08T16:26:05Z",
+      "updatedAt": "2023-04-16T18:57:41Z",
+      "baseRepository": "arks-org/arkspec",
+      "baseRefName": "main",
+      "baseRefOid": "9fcc4f79540630f4ff36b54b75dfbb7a85af34c0",
+      "headRepository": "dwinston/arkspec",
+      "headRefName": "patch-1",
+      "headRefOid": "93aca1658e08c0d4ab9b0585edac4f9e3f9106b2",
+      "closedAt": "2023-04-16T18:57:41Z",
+      "mergedAt": "2023-04-16T18:57:41Z",
+      "mergedBy": "jkunze",
+      "mergeCommit": {
+        "oid": "71d681c54e2f8a2317fee7abba93f1b45dcab418"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGnqRK85F4l2Z",
+          "commit": {
+            "abbreviatedOid": "93aca16"
+          },
+          "author": "datadavev",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-11-08T16:28:34Z",
+          "updatedAt": "2022-11-08T16:28:34Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOGnqRK85DPce_",
+      "title": "fix: ComponentPath and VariantPath example",
+      "url": "https://github.com/arks-org/arkspec/pull/4",
+      "state": "MERGED",
+      "author": "dwinston",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-11-18T20:03:40Z",
+      "updatedAt": "2023-04-16T18:55:07Z",
+      "baseRepository": "arks-org/arkspec",
+      "baseRefName": "main",
+      "baseRefOid": "9fcc4f79540630f4ff36b54b75dfbb7a85af34c0",
+      "headRepository": "dwinston/arkspec",
+      "headRefName": "patch-2",
+      "headRefOid": "5738a3ca5d7bbfe794ebce5c52a668c07b784b5a",
+      "closedAt": "2023-04-16T18:55:07Z",
+      "mergedAt": "2023-04-16T18:55:07Z",
+      "mergedBy": "jkunze",
+      "mergeCommit": {
+        "oid": "53527c26b44f31f10f7242550a2181ef29a121f5"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGnqRK85SrEq3",
+          "commit": {
+            "abbreviatedOid": "5738a3c"
+          },
+          "author": "jkunze",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "Thanks.",
+          "createdAt": "2023-04-16T18:54:30Z",
+          "updatedAt": "2023-04-16T18:54:30Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}

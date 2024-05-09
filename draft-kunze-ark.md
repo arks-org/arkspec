@@ -6,7 +6,7 @@ wg: Network Working Group
 docname: draft-kunze-ark-latest
 ipr: trust200902
 submissiontype: IETF
-date: 2023
+date: 2024
 consensus: true
 pi:
   strict: yes
@@ -1362,13 +1362,21 @@ syntax, and not subject to tampering during transmission across
 common transport gateways.
 
 Any measure that reduces user irritation with an identifier will
-increase its chances of survival.  This explains the rule preventing
-hyphens from having lexical significance.  It is fine to publish ARKs
+increase its chances of acceptance, hence survival.
+Irritation can arise when common user assumptions are not shared by
+service providers. For example, providers may wish to avoid leading
+zeroes in an identifier component that looks like a number because
+users who assume that leading zeroes contribute nothing to that quantity
+may omit them during transcription. Also, unless an identifier already
+employs mixed case letters, users often assume uppercase letters to be
+equivalent to their lowercase counterparts, in which instance (e.g., a
+shoulder that employs only one case) a provider may wish to accept incoming
+ARKs in either uppercase or lowercase. Another common user assumption is
+that hyphens are lexically insignificant.  It is fine to publish ARKs
 with hyphens in them (e.g., such as the output of UUID/GUID
 generators), but the uniform treatment of hyphens (and their Unicode
-equivalents) as insignificant reduces the possibility of users
-transcribing identifiers that will have been broken through
-unpredictable hyphenation by word processors.
+equivalents) as insignificant reduces the possibility of identifiers
+breaking when users omit hyphens or when word processors add them.
 
 ## Objects Should Wear Their Identifiers
 

@@ -5,8 +5,8 @@
 Network Working Group                                           J. Kunze
 Internet-Draft                                           Ronin Institute
 Intended status: Informational                                 E. Bermès
-Expires: 9 May 2024                          École nationale des Chartes
-                                                         6 November 2023
+Expires: 10 November 2024                    École nationale des Chartes
+                                                              9 May 2024
 
 
                        The ARK Identifier Scheme
@@ -64,11 +64,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 May 2024.
+   This Internet-Draft will expire on 10 November 2024.
 
 Copyright Notice
 
-   Copyright (c) 2023 IETF Trust and the persons identified as the
+   Copyright (c) 2024 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1224,13 +1224,22 @@ Table of Contents
    common transport gateways.
 
    Any measure that reduces user irritation with an identifier will
-   increase its chances of survival.  This explains the rule preventing
-   hyphens from having lexical significance.  It is fine to publish ARKs
-   with hyphens in them (e.g., such as the output of UUID/GUID
-   generators), but the uniform treatment of hyphens (and their Unicode
-   equivalents) as insignificant reduces the possibility of users
-   transcribing identifiers that will have been broken through
-   unpredictable hyphenation by word processors.
+   increase its chances of acceptance, hence survival.  Irritation can
+   arise when common user assumptions are not shared by service
+   providers.  For example, providers may wish to avoid leading zeroes
+   in an identifier component that looks like a number because users who
+   assume that leading zeroes contribute nothing to that quantity may
+   omit them during transcription.  Also, unless an identifier already
+   employs mixed case letters, users often assume uppercase letters to
+   be equivalent to their lowercase counterparts, in which instance
+   (e.g., a shoulder that employs only one case) a provider may wish to
+   accept incoming ARKs in either uppercase or lowercase.  Another
+   common user assumption is that hyphens are lexically insignificant.
+   It is fine to publish ARKs with hyphens in them (e.g., such as the
+   output of UUID/GUID generators), but the uniform treatment of hyphens
+   (and their Unicode equivalents) as insignificant reduces the
+   possibility of identifiers breaking when users omit hyphens or when
+   word processors add them.
 
 4.2.  Objects Should Wear Their Identifiers
 

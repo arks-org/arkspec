@@ -5,8 +5,8 @@
 Network Working Group                                           J. Kunze
 Internet-Draft                                           Ronin Institute
 Intended status: Informational                                 E. Bermès
-Expires: 10 November 2024                    École nationale des Chartes
-                                                              9 May 2024
+Expires: 15 May 2025                         École nationale des Chartes
+                                                        11 November 2024
 
 
                        The ARK Identifier Scheme
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 November 2024.
+   This Internet-Draft will expire on 15 May 2025.
 
 Copyright Notice
 
@@ -102,7 +102,7 @@ Table of Contents
      3.3.  Resolver Chains and Roles
      3.4.  Finding a Resolver Service
    4.  Naming Considerations
-     4.1.  ARKS and Usability
+     4.1.  ARKs and Usability
      4.2.  Objects Should Wear Their Identifiers
      4.3.  Names are Political, not Technological
      4.4.  Choosing a Hostname or NMA
@@ -117,7 +117,8 @@ Table of Contents
      5.3.  The Electronic Resource Citation (ERC)
      5.4.  Advice to Web Clients
      5.5.  Enhancements and Related Specifications
-     5.6.  Security Considerations
+     5.6.  IANA Considerations
+     5.7.  Security Considerations
    6.  Informative References
    Appendix A.  ARK Maintenance Agency: arks.org
    Appendix B.  Looking up NMAs Distributed via DNS
@@ -438,7 +439,7 @@ Table of Contents
    identified thing.  The Base Name has Prefixes (NAAN, Label, possibly
    a Resolver Service) and optional Suffixes to identify Parts and
    Variant forms.  During resolution, a Resolver Service such as n2t.net
-   may be able to deal with inflections query strings, and content
+   [N2T] may be able to deal with inflections query strings, and content
    negotiation.
 
       ANATOMY DETAILS
@@ -622,7 +623,7 @@ Table of Contents
    of 16 octets.  NAANs are opaque strings of one or more "betanumeric"
    characters, specifically,
 
-       0123456789bcdfghjkmnpqrstvwxz
+       bcdfghjkmnpqrstvwxz0123456789
 
    which consists of digits and consonants, minus the letter 'l'.
    Restricting NAANs to betanumerics (alphanumerics without vowels or
@@ -1120,15 +1121,25 @@ Table of Contents
    originally designed to store a secondary copy of metadata for many
    millions of identifiers.
 
+   If an ARK Resolver Service receives a request for a NAAN that it
+   knows nothing about, best practice is to redirect the request to
+   N2T.net.
+
 3.4.  Finding a Resolver Service
 
-   In order to derive an actionable identifier (these days, a URL) from
-   an ARK, a Resolver Service must be found.  On the web, the Resolver
-   Service consists of a URI scheme and an NMA, where the NMA is a host
-   or host/port combination, optionally followed by URI-type path
-   components, all ending in a '/'.  The Resolver Service is expected to
-   respond to basic ARK service requests.  An NMA may provide mapping
-   services for more than one NAAN.
+   In order to discover if a given host or origin [RFC6454] implements
+   an ARK Resolver Service, it is recommended that it respond to the
+   "/.well-known/ark" URI suffix [RFC8615] as described in the IANA
+   Considerations section.
+
+   Given either a Compact ARK (missing an NMA) or an ARK with a non-
+   functioning NMA, in order to derive an actionable identifier (these
+   days, a URL), a Resolver Service must be found.  On the web, the
+   Resolver Service consists of a URI scheme and an NMA, where the NMA
+   is a host or host/port combination, optionally followed by URI-type
+   path components, all ending in a '/'.  The Resolver Service is
+   expected to respond to basic ARK service requests.  An NMA may
+   provide mapping services for more than one NAAN.
 
    Upon encountering an ARK, a user (or client software) determines if
    it is a Mapping ARK (ie, it is a URL beginning with a Resolver
@@ -1146,27 +1157,38 @@ Table of Contents
 
    The global database is key, and ideally the lookup would be automatic
    and transparent to the user.  For this, the current mainstream method
-   is the Name-to-Thing (N2T) Resolver [N2T] at n2t.net.  It is based on
-   a plain text [NAANregistry] database containing explanatory comments,
-   so it can also be directly inspected by users, for example, to
-   manually find a Resolver Service.  N2T is a reliable, low-cost
-   Resolver Service provided by the ARK Alliance primarily to support
-   actionable HTTP-based URLs for as long as HTTP is used.  N2T scales
-   to store and resolve over 100 million individual identifiers and
-   their metadata, and has played a valuable role in persistent
-   identification by keeping a redundant copy of identifier metadata.
-   Because it has the option of storing redirection information for
-   individual identifiers rather than just at the name assigning
-   authority level, N2T can deal with namespace splitting; when a
-   portion of a NAAN space maintained by one NMA is taken on by a second
-   NMA, N2T can rely on individual identifier redirects for that portion
-   and a single NAAN-based rule for the remainder.
+   is to use the resolver chain that starts with the Name-to-Thing (N2T)
+   Resolver [N2T] at n2t.net.  While the sequence of hops in the
+   redirect chain behind N2T is subject to change (as with any
+   redirection strategy that supports persistent naming), the N2T chain
+   is meant to provide several durable capabilities.  N2T is a reliable,
+   lightweight Resolver Service provided by the ARK Alliance primarily
+   to support actionable HTTP-based URLs for as long as HTTP is used.
 
-   An appendix describes an historical way to discover an NMA based on a
-   simplification of the URN resolver discovery method, itself very
-   similar in principle to the resolver discovery method used by Handles
-   and DOIs.  None of these methods does more than what can be done with
-   a very small, consortially maintained web server such as [N2T].
+   For example, the N2T chain can return metadata about individual ARK-
+   identified resources, but in 2024 n2t.net itself (as the first
+   resolver in the chain) stopped returning such metadata immediately
+   and instead began delegating them to resolvers further along the
+   chain.  Similarly, the N2T chain redirects ARKs to local resolvers on
+   a per-NAAN basis, but in 2024 n2t.net stopped redirecting immediately
+   to those resolvers and instead began redirecting them to a subdomain
+   (under arks.org) that held such per-NAAN knowledge.  The N2T chain is
+   designed to anticipate future specialty subresolvers that can provide
+   such things as backup copies of per-resource metadata (for
+   resilience) or per-resource redirection when a NAAN namespace splits
+   and not all ARKs under a given NAAN can be redirected by just one
+   NMA.
+
+   The knowledge about where a given NAAN can be resolved is contained
+   in a plain text [NAANregistry] file.  As a machine- and human-
+   readable database, it contains explanatory comments that can be
+   directly inspected by users, for example, when manually looking for a
+   Resolver Service.  An appendix describes an historical way to
+   discover an NMA based on a simplification of the URN resolver
+   discovery method, itself very similar in principle to the resolver
+   discovery method used by Handles and DOIs.  None of these methods
+   does more than what can be done with a very small, consortially
+   maintained web server such as [N2T].
 
    In the interests of long-term persistence, however, ARK mechanisms
    are first defined in high-level, protocol-independent terms so that
@@ -1214,7 +1236,7 @@ Table of Contents
    back to naming practices that we now know to be less than optimal for
    persistence.
 
-4.1.  ARKS and Usability
+4.1.  ARKs and Usability
 
    Because linguistic constructs imperil persistence, for ARKs non-ASCII
    character support is not a priority.  ARKs and URIs share goals of
@@ -1825,7 +1847,43 @@ Table of Contents
    evolve.  Follow-on developments and specifications will be made
    available from the ARK Maintenance Agency [ARKspecs].
 
-5.6.  Security Considerations
+5.6.  IANA Considerations
+
+   This specification registers "ark" in the "Well-Known URIs" registry
+   as defined by [RFC8615].
+
+   URI suffix: ark
+
+   Change controller: ARK Alliance [ARKagency]
+
+   Specification document: this document (this section)
+
+   Status: provisional
+
+   If a host has an ARK Resolver Service, best practice is to allow
+   clients to discover its location by supporting the URI path
+
+   /.well-known/ark
+
+   Accessing this path should return a plain text file containing the
+   ARK Resolver Service URI path ending in '/'.  Here is an example
+   access.
+
+    1  C: [opens session]
+       C: GET https://example.org/.well-known/ark HTTP/1.1
+       C:
+       S: HTTP/1.1 200 OK
+    5  S: Content-Type: text/plain
+       S:
+       S: /index.php/bulletin/gateway/plugin/pubIdResolver/
+       S: [closes session]
+
+   The service URI path should name the root of an ARK Resolver Service
+   on the host in the sense that appending a Compact ARK to it should
+   create a valid resolution request path.  Often the service path is
+   just '/', but this cannot be assumed.
+
+5.7.  Security Considerations
 
    The ARK naming scheme poses no direct risk to computers and networks.
    Implementors of ARK services need to be aware of security issues when
@@ -1964,6 +2022,14 @@ Table of Contents
    [RFC5013]  Kunze, J. and T. Baker, "The Dublin Core Metadata Element
               Set", RFC 5013, DOI 10.17487/RFC5013, August 2007,
               <https://www.rfc-editor.org/rfc/rfc5013>.
+
+   [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
+              DOI 10.17487/RFC6454, December 2011,
+              <https://www.rfc-editor.org/rfc/rfc6454>.
+
+   [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
+              (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
+              <https://www.rfc-editor.org/rfc/rfc8615>.
 
    [shoulderrequest]
               ARKs.org, "Shoulder Request Form", 2021,

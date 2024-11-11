@@ -31,25 +31,24 @@ for the content of this Internet Draft.  The group homepage lists
 monthly meeting notes and agendas starting from March 2019.
 Revisions of the spec are maintained on github at  . 
     " name="description">
-<meta content="xml2rfc 3.21.0" name="generator">
+<meta content="xml2rfc 3.24.0" name="generator">
 <meta content="identifier" name="keyword">
 <meta content="archive" name="keyword">
 <meta content="PID" name="keyword">
 <meta content="draft-kunze-ark-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.21.0
-    Python 3.11.9
+  xml2rfc 3.24.0
+    Python 3.12.7
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.2.1
+    Jinja2 3.1.4
+    lxml 5.3.0
+    platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
-    requests 2.31.0
-    setuptools 68.2.2
-    six 1.16.0
+    requests 2.32.3
+    setuptools 70.3.0
     wcwidth 0.2.13
 -->
 <link href="draft-kunze-ark.xml" rel="alternate" type="application/rfc+xml">
@@ -186,31 +185,6 @@ Revisions of the spec are maintained on github at  .
 }
 
 @font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
   font-family: 'Oxygen Mono';
   font-style: normal;
   font-weight: 400;
@@ -227,6 +201,77 @@ Revisions of the spec are maintained on github at  .
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light dark;
   --background-color: #fff;
@@ -239,6 +284,7 @@ Revisions of the spec are maintained on github at  .
   --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
   --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
   scrollbar-color: #bbb #eee;
 }
 body {
@@ -257,8 +303,8 @@ body {
 
 /* headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Cabin Condensed", sans-serif;
-  font-weight: 600;
+  font-family: var(--font-title);
+  font-weight: 680;
   margin: 0.8em 0 0.3em;
   font-size-adjust: 0.5;
   color: var(--title-color);
@@ -666,6 +712,12 @@ sub, sup {
   padding: 0.75em 0 2em 0;
   margin-bottom: 1em;
 }
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+  }
+}
 #toc nav ul {
   margin: 0 0.5em 0 0;
   padding: 0;
@@ -1049,11 +1101,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ARK</td>
-<td class="right">May 2024</td>
+<td class="right">November 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Kunze &amp; Bermès</td>
-<td class="center">Expires 10 November 2024</td>
+<td class="center">Expires 15 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1066,12 +1118,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-kunze-ark-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-05-09" class="published">9 May 2024</time>
+<time datetime="2024-11-11" class="published">11 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-11-10">10 November 2024</time></dd>
+<dd class="expires"><time datetime="2025-05-15">15 May 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1139,7 +1191,7 @@ Revisions of the spec are maintained on github at <span>[<a href="#ARKdrafts" cl
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 10 November 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1239,7 +1291,7 @@ Revisions of the spec are maintained on github at <span>[<a href="#ARKdrafts" cl
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-naming-considerations" class="internal xref">Naming Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-arks-and-usability" class="internal xref">ARKS and Usability</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-arks-and-usability" class="internal xref">ARKs and Usability</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-objects-should-wear-their-i" class="internal xref">Objects Should Wear Their Identifiers</a></p>
@@ -1288,7 +1340,10 @@ Revisions of the spec are maintained on github at <span>[<a href="#ARKdrafts" cl
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-enhancements-and-related-sp" class="internal xref">Enhancements and Related Specifications</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6">
-                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7">
+                <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="auto internal xref">5.7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
             </ul>
 </li>
@@ -1629,7 +1684,7 @@ Authority Number) followed by the Name that it assigns to the
 identified thing.  The Base Name has Prefixes (NAAN, Label, possibly
 a Resolver Service) and optional Suffixes to identify Parts and
 Variant forms.  During resolution, a Resolver Service such as n2t.net
-may be able to deal with inflections query strings, and content
+<span>[<a href="#N2T" class="cite xref">N2T</a>]</span> may be able to deal with inflections query strings, and content
 negotiation.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-2-5">
 <pre>
@@ -1850,7 +1905,7 @@ of 16 octets.  NAANs are opaque strings of one or more "betanumeric"
 characters, specifically,<a href="#section-2.3-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-2.3-5">
 <pre>
-    0123456789bcdfghjkmnpqrstvwxz
+    bcdfghjkmnpqrstvwxz0123456789
 </pre><a href="#section-2.3-5" class="pilcrow">¶</a>
 </div>
 <p id="section-2.3-6">which consists of digits and consonants, minus the letter 'l'.
@@ -2395,6 +2450,8 @@ it can be useful to maintain a secondary copy of object metadata at
 an external and publicly visible resolver.  For example, N2T.net was
 originally designed to store a secondary copy of metadata for many
 millions of identifiers.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.3-5">If an ARK Resolver Service receives a request for a NAAN that it knows
+nothing about, best practice is to redirect the request to N2T.net.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="finding-a-resolver-service">
@@ -2402,14 +2459,19 @@ millions of identifiers.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
         <h3 id="name-finding-a-resolver-service">
 <a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-finding-a-resolver-service" class="section-name selfRef">Finding a Resolver Service</a>
         </h3>
-<p id="section-3.4-1">In order to derive an actionable identifier (these days, a URL) from
-an ARK, a Resolver Service must be found.  On the web, the Resolver
+<p id="section-3.4-1">In order to discover if a given host or origin <span>[<a href="#RFC6454" class="cite xref">RFC6454</a>]</span> implements
+an ARK Resolver Service, it is recommended that it respond to the
+"/.well-known/ark" URI suffix <span>[<a href="#RFC8615" class="cite xref">RFC8615</a>]</span> as described in the IANA
+Considerations section.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">Given either a Compact ARK (missing an NMA) or an ARK with a non-functioning
+NMA, in order to derive an actionable identifier (these days, a URL),
+a Resolver Service must be found.  On the web, the Resolver
 Service consists of a URI scheme and an NMA, where the NMA is a host
 or host/port combination, optionally followed by URI-type path
 components, all ending in a '/'.  The Resolver Service is expected to
 respond to basic ARK service requests.  An NMA may provide mapping
-services for more than one NAAN.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.4-2">Upon encountering an ARK, a user (or client software) determines if
+services for more than one NAAN.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.4-3">Upon encountering an ARK, a user (or client software) determines if
 it is a Mapping ARK (ie, it is a URL beginning with a Resolver
 Service).  If the Resolver Service is working, this discovery step
 likely can be skipped assuming the URL correctly identifies a working
@@ -2421,37 +2483,45 @@ identified NAA.  This NAAN-to-NMA resolver discovery method is common
 (cf URN, Handle, DOI) but does not address the namespace splitting
 problem, which is when a portion of a NAAN space originally
 maintained entirely by one NMA is taken on by a second NMA; now the
-NAAN alone cannot reveal which NMA (resolver) to choose.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
-<p id="section-3.4-3">The global database is key, and ideally the lookup would be automatic
+NAAN alone cannot reveal which NMA (resolver) to choose.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">The global database is key, and ideally the lookup would be automatic
 and transparent to the user.  For this, the current mainstream method
-is the Name-to-Thing (N2T) Resolver <span>[<a href="#N2T" class="cite xref">N2T</a>]</span> at n2t.net.  It is based on
-a plain text <span>[<a href="#NAANregistry" class="cite xref">NAANregistry</a>]</span> database containing explanatory comments,
-so it can also be directly inspected by users, for example, to
-manually find a Resolver Service.  N2T is a reliable, low-cost
-Resolver Service provided by the ARK Alliance primarily to support
-actionable HTTP-based URLs for as long as HTTP is used.  N2T scales
-to store and resolve over 100 million individual identifiers and
-their metadata, and has played a valuable role in persistent
-identification by keeping a redundant copy of identifier metadata.
-Because it has the option of storing redirection information for
-individual identifiers rather than just at the name assigning
-authority level, N2T can deal with namespace splitting; when a
-portion of a NAAN space maintained by one NMA is taken on by a second
-NMA, N2T can rely on individual identifier redirects for that portion
-and a single NAAN-based rule for the remainder.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
-<p id="section-3.4-4">An appendix describes an historical way to discover an NMA based on a
+is to use the resolver chain that starts with the Name-to-Thing (N2T)
+Resolver <span>[<a href="#N2T" class="cite xref">N2T</a>]</span> at n2t.net.  While the sequence of hops in the redirect
+chain behind N2T is subject to change (as with any redirection strategy
+that supports persistent naming), the N2T chain is meant to provide
+several durable capabilities. N2T is a reliable, lightweight Resolver
+Service provided by the ARK Alliance primarily to support actionable
+HTTP-based URLs for as long as HTTP is used.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4-5">For example, the N2T chain can return metadata about individual
+ARK-identified resources, but in 2024 n2t.net itself (as the first
+resolver in the chain) stopped returning such metadata immediately
+and instead began delegating them to resolvers further along the chain.
+Similarly, the N2T chain redirects ARKs to local resolvers on a per-NAAN
+basis, but in 2024 n2t.net stopped redirecting immediately to those
+resolvers and instead began redirecting them to a subdomain (under
+arks.org) that held such per-NAAN knowledge. The N2T chain is designed
+to anticipate future specialty subresolvers that can provide such things
+as backup copies of per-resource metadata (for resilience) or per-resource
+redirection when a NAAN namespace splits and not all ARKs under a given
+NAAN can be redirected by just one NMA.<a href="#section-3.4-5" class="pilcrow">¶</a></p>
+<p id="section-3.4-6">The knowledge about where a given NAAN can be resolved is contained in a
+plain text <span>[<a href="#NAANregistry" class="cite xref">NAANregistry</a>]</span> file. As a machine- and human-readable database,
+it contains explanatory comments that can be directly inspected by users,
+for example, when manually looking for a Resolver Service.
+An appendix describes an historical way to discover an NMA based on a
 simplification of the URN resolver discovery method, itself very
 similar in principle to the resolver discovery method used by Handles
 and DOIs.  None of these methods does more than what can be done with
-a very small, consortially maintained web server such as <span>[<a href="#N2T" class="cite xref">N2T</a>]</span>.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
-<p id="section-3.4-5">In the interests of long-term persistence, however, ARK mechanisms
+a very small, consortially maintained web server such as <span>[<a href="#N2T" class="cite xref">N2T</a>]</span>.<a href="#section-3.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.4-7">In the interests of long-term persistence, however, ARK mechanisms
 are first defined in high-level, protocol-independent terms so that
 mechanisms may evolve and be replaced over time without compromising
 fundamental service objectives.  Either or both specific methods
 given here may eventually be supplanted by better methods since, by
 design, the ARK scheme does not depend on a particular method, but
-only on having some method to locate an active NMA.<a href="#section-3.4-5" class="pilcrow">¶</a></p>
-<p id="section-3.4-6">At the time of issuance, at least one NMA for an ARK should be
+only on having some method to locate an active NMA.<a href="#section-3.4-7" class="pilcrow">¶</a></p>
+<p id="section-3.4-8">At the time of issuance, at least one NMA for an ARK should be
 prepared to service it.  That NMA may or may not be administered by
 the Name Assigning Authority (NAA) that created it.  Consider the
 following hypothetical example of providing long-term access to a
@@ -2470,13 +2540,13 @@ begin servicing requests for issues older than six months by tapping
 directly into its own archives.  Meanwhile, the publisher might
 routinely redirect incoming requests for older issues to the library.
 Long-term access is thereby preserved, and so is the commercial
-incentive to publish content.<a href="#section-3.4-6" class="pilcrow">¶</a></p>
-<p id="section-3.4-7">Although it will be common for an NAA also to run an NMA service, it
+incentive to publish content.<a href="#section-3.4-8" class="pilcrow">¶</a></p>
+<p id="section-3.4-9">Although it will be common for an NAA also to run an NMA service, it
 is never a requirement.  Over time NAAs and NMAs will come and go.
 One NMA will succeed another, and there might be many NMAs serving
 the same ARKs simultaneously (e.g., as mirrors or as competitors).
 There might also be asymmetric but coordinated NMAs as in the
-library-publisher example above.<a href="#section-3.4-7" class="pilcrow">¶</a></p>
+library-publisher example above.<a href="#section-3.4-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2496,7 +2566,7 @@ persistence.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="arks-and-usability">
 <section id="section-4.1">
         <h3 id="name-arks-and-usability">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-arks-and-usability" class="section-name selfRef">ARKS and Usability</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-arks-and-usability" class="section-name selfRef">ARKs and Usability</a>
         </h3>
 <p id="section-4.1-1">Because linguistic constructs imperil persistence, for ARKs non-ASCII
 character support is not a priority.  ARKs and URIs share goals of
@@ -3169,12 +3239,50 @@ evolve.  Follow-on developments and specifications will be made
 available from the ARK Maintenance Agency <span>[<a href="#ARKspecs" class="cite xref">ARKspecs</a>]</span>.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="security-considerations">
+<div id="iana-considerations">
 <section id="section-5.6">
-        <h3 id="name-security-considerations">
-<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+        <h3 id="name-iana-considerations">
+<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
         </h3>
-<p id="section-5.6-1">The ARK naming scheme poses no direct risk to computers and networks.
+<p id="section-5.6-1">This specification registers "ark" in the "Well-Known URIs" registry
+as defined by <span>[<a href="#RFC8615" class="cite xref">RFC8615</a>]</span>.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
+<p id="section-5.6-2">URI suffix:  ark<a href="#section-5.6-2" class="pilcrow">¶</a></p>
+<p id="section-5.6-3">Change controller:  ARK Alliance <span>[<a href="#ARKagency" class="cite xref">ARKagency</a>]</span><a href="#section-5.6-3" class="pilcrow">¶</a></p>
+<p id="section-5.6-4">Specification document:  this document (this section)<a href="#section-5.6-4" class="pilcrow">¶</a></p>
+<p id="section-5.6-5">Status:  provisional<a href="#section-5.6-5" class="pilcrow">¶</a></p>
+<p id="section-5.6-6">If a host has an ARK Resolver Service, best practice is to allow clients
+to discover its location by supporting the URI path<a href="#section-5.6-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.6-7">
+<pre>
+/.well-known/ark
+</pre><a href="#section-5.6-7" class="pilcrow">¶</a>
+</div>
+<p id="section-5.6-8">Accessing this path should return a plain text file containing the ARK
+Resolver Service URI path ending in '/'. Here is an example access.<a href="#section-5.6-8" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.6-9">
+<pre>
+ 1  C: [opens session]
+    C: GET https://example.org/.well-known/ark HTTP/1.1
+    C:
+    S: HTTP/1.1 200 OK
+ 5  S: Content-Type: text/plain
+    S:
+    S: /index.php/bulletin/gateway/plugin/pubIdResolver/
+    S: [closes session]
+</pre><a href="#section-5.6-9" class="pilcrow">¶</a>
+</div>
+<p id="section-5.6-10">The service URI path should name the root of an ARK Resolver Service on the
+host in the sense that appending a Compact ARK to it should create a valid
+resolution request path. Often the service path is just '/', but this cannot
+be assumed.<a href="#section-5.6-10" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-5.7">
+        <h3 id="name-security-considerations">
+<a href="#section-5.7" class="section-number selfRef">5.7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+        </h3>
+<p id="section-5.7-1">The ARK naming scheme poses no direct risk to computers and networks.
 Implementors of ARK services need to be aware of security issues when
 querying networks and filesystems for Name Mapping Authority
 services, and the concomitant risks from spoofing and obtaining
@@ -3182,14 +3290,14 @@ incorrect information.  These risks are no greater for ARK mapping
 authority discovery than for other kinds of service discovery.  For
 example, recipients of ARKs with a specified NMA should treat it like
 a URL and be aware that the identified ARK service may no longer be
-operational.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
-<p id="section-5.6-2">Apart from mapping authority discovery, ARK clients and servers
+operational.<a href="#section-5.7-1" class="pilcrow">¶</a></p>
+<p id="section-5.7-2">Apart from mapping authority discovery, ARK clients and servers
 subject themselves to all the risks that accompany normal operation
 of the protocols underlying mapping services (e.g., HTTP).  As
 specializations of such protocols, an ARK service may limit exposure
 to the usual risks.  Indeed, ARK services may enhance a kind of
 security by helping users identify long-term reliable references to
-information objects.<a href="#section-5.6-2" class="pilcrow">¶</a></p>
+information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3315,6 +3423,14 @@ information objects.<a href="#section-5.6-2" class="pilcrow">¶</a></p>
 <dt id="RFC5013">[RFC5013]</dt>
       <dd>
 <span class="refAuthor">Kunze, J.</span> and <span class="refAuthor">T. Baker</span>, <span class="refTitle">"The Dublin Core Metadata Element Set"</span>, <span class="seriesInfo">RFC 5013</span>, <span class="seriesInfo">DOI 10.17487/RFC5013</span>, <time datetime="2007-08" class="refDate">August 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5013">https://www.rfc-editor.org/rfc/rfc5013</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6454">[RFC6454]</dt>
+      <dd>
+<span class="refAuthor">Barth, A.</span>, <span class="refTitle">"The Web Origin Concept"</span>, <span class="seriesInfo">RFC 6454</span>, <span class="seriesInfo">DOI 10.17487/RFC6454</span>, <time datetime="2011-12" class="refDate">December 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6454">https://www.rfc-editor.org/rfc/rfc6454</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8615">[RFC8615]</dt>
+      <dd>
+<span class="refAuthor">Nottingham, M.</span>, <span class="refTitle">"Well-Known Uniform Resource Identifiers (URIs)"</span>, <span class="seriesInfo">RFC 8615</span>, <span class="seriesInfo">DOI 10.17487/RFC8615</span>, <time datetime="2019-05" class="refDate">May 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8615">https://www.rfc-editor.org/rfc/rfc8615</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="shoulderrequest">[shoulderrequest]</dt>
       <dd>

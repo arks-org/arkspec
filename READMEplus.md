@@ -83,6 +83,7 @@ To update the actions to a newer version, or if there's a change of author
 email, draft title, or draft filename, manually run
 
 ```sh
+$ make update
 $ make update-files
 ```
 

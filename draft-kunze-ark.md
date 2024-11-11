@@ -58,6 +58,8 @@ informative:
   RFC0854:
   RFC2822:
   RFC2915:
+  RFC6454:
+  RFC8615:
 
   DOI:
     target: https://doi.org/10.1000/203
@@ -580,7 +582,7 @@ Authority Number) followed by the Name that it assigns to the
 identified thing.  The Base Name has Prefixes (NAAN, Label, possibly
 a Resolver Service) and optional Suffixes to identify Parts and
 Variant forms.  During resolution, a Resolver Service such as n2t.net
-may be able to deal with inflections query strings, and content
+[N2T] may be able to deal with inflections query strings, and content
 negotiation.
 
 ~~~
@@ -771,7 +773,7 @@ of 16 octets.  NAANs are opaque strings of one or more "betanumeric"
 characters, specifically,
 
 ~~~
-    0123456789bcdfghjkmnpqrstvwxz
+    bcdfghjkmnpqrstvwxz0123456789
 ~~~
 
 which consists of digits and consonants, minus the letter 'l'.
@@ -1258,10 +1260,19 @@ an external and publicly visible resolver.  For example, N2T.net was
 originally designed to store a secondary copy of metadata for many
 millions of identifiers.
 
+If an ARK Resolver Service receives a request for a NAAN that it knows
+nothing about, best practice is to redirect the request to N2T.net.
+
 ## Finding a Resolver Service
 
-In order to derive an actionable identifier (these days, a URL) from
-an ARK, a Resolver Service must be found.  On the web, the Resolver
+In order to discover if a given host or origin {{RFC6454}} implements
+an ARK Resolver Service, it is recommended that it respond to the
+"/.well-known/ark" URI suffix {{RFC8615}} as described in the IANA
+Considerations section.
+
+Given either a Compact ARK (missing an NMA) or an ARK with a non-functioning
+NMA, in order to derive an actionable identifier (these days, a URL),
+a Resolver Service must be found.  On the web, the Resolver
 Service consists of a URI scheme and an NMA, where the NMA is a host
 or host/port combination, optionally followed by URI-type path
 components, all ending in a '/'.  The Resolver Service is expected to
@@ -1284,22 +1295,31 @@ NAAN alone cannot reveal which NMA (resolver) to choose.
 
 The global database is key, and ideally the lookup would be automatic
 and transparent to the user.  For this, the current mainstream method
-is the Name-to-Thing (N2T) Resolver [N2T] at n2t.net.  It is based on
-a plain text [NAANregistry] database containing explanatory comments,
-so it can also be directly inspected by users, for example, to
-manually find a Resolver Service.  N2T is a reliable, low-cost
-Resolver Service provided by the ARK Alliance primarily to support
-actionable HTTP-based URLs for as long as HTTP is used.  N2T scales
-to store and resolve over 100 million individual identifiers and
-their metadata, and has played a valuable role in persistent
-identification by keeping a redundant copy of identifier metadata.
-Because it has the option of storing redirection information for
-individual identifiers rather than just at the name assigning
-authority level, N2T can deal with namespace splitting; when a
-portion of a NAAN space maintained by one NMA is taken on by a second
-NMA, N2T can rely on individual identifier redirects for that portion
-and a single NAAN-based rule for the remainder.
+is to use the resolver chain that starts with the Name-to-Thing (N2T)
+Resolver [N2T] at n2t.net.  While the sequence of hops in the redirect
+chain behind N2T is subject to change (as with any redirection strategy
+that supports persistent naming), the N2T chain is meant to provide
+several durable capabilities. N2T is a reliable, lightweight Resolver
+Service provided by the ARK Alliance primarily to support actionable
+HTTP-based URLs for as long as HTTP is used.
 
+For example, the N2T chain can return metadata about individual
+ARK-identified resources, but in 2024 n2t.net itself (as the first
+resolver in the chain) stopped returning such metadata immediately
+and instead began delegating them to resolvers further along the chain.
+Similarly, the N2T chain redirects ARKs to local resolvers on a per-NAAN
+basis, but in 2024 n2t.net stopped redirecting immediately to those
+resolvers and instead began redirecting them to a subdomain (under
+arks.org) that held such per-NAAN knowledge. The N2T chain is designed
+to anticipate future specialty subresolvers that can provide such things
+as backup copies of per-resource metadata (for resilience) or per-resource
+redirection when a NAAN namespace splits and not all ARKs under a given
+NAAN can be redirected by just one NMA.
+
+The knowledge about where a given NAAN can be resolved is contained in a
+plain text [NAANregistry] file. As a machine- and human-readable database,
+it contains explanatory comments that can be directly inspected by users,
+for example, when manually looking for a Resolver Service.
 An appendix describes an historical way to discover an NMA based on a
 simplification of the URN resolver discovery method, itself very
 similar in principle to the resolver discovery method used by Handles
@@ -1352,7 +1372,7 @@ few observed identifier failures and inconveniences can be traced
 back to naming practices that we now know to be less than optimal for
 persistence.
 
-## ARKS and Usability
+## ARKs and Usability
 
 Because linguistic constructs imperil persistence, for ARKs non-ASCII
 character support is not a priority.  ARKs and URIs share goals of
@@ -1942,7 +1962,6 @@ not normally shown to users) and in rendered text (displayed or
 printed).  A normal HTML link for which the URL is not displayed
 looks like this.
 
-
 ~~~
     <a href = "https://example.org/index.htm"> Click Here <a>
 ~~~
@@ -1972,6 +1991,43 @@ spiders) to stumble across in browsing.
 ARK services, data models, inflections, and applications continue to
 evolve.  Follow-on developments and specifications will be made
 available from the ARK Maintenance Agency [ARKspecs].
+
+## IANA Considerations
+
+This specification registers "ark" in the "Well-Known URIs" registry
+as defined by {{RFC8615}}.
+
+   URI suffix:  ark
+
+   Change controller:  ARK Alliance [ARKagency]
+
+   Specification document:  this document (this section)
+
+   Status:  provisional
+
+If a host has an ARK Resolver Service, best practice is to allow clients
+to discover its location by supporting the URI path
+
+    /.well-known/ark
+
+Accessing this path should return a plain text file containing the ARK
+Resolver Service URI path ending in '/'. Here is an example access.
+
+~~~
+ 1  C: [opens session]
+    C: GET https://example.org/.well-known/ark HTTP/1.1
+    C:
+    S: HTTP/1.1 200 OK
+ 5  S: Content-Type: text/plain
+    S:
+    S: /index.php/bulletin/gateway/plugin/pubIdResolver/
+    S: [closes session]
+~~~
+
+The service URI path should name the root of an ARK Resolver Service on the
+host in the sense that appending a Compact ARK to it should create a valid
+resolution request path. Often the service path is just '/', but this cannot
+be assumed.
 
 ## Security Considerations
 

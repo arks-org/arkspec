@@ -3,10 +3,10 @@
 
 
 Network Working Group                                           J. Kunze
-Internet-Draft                                           Ronin Institute
+Internet-Draft                                         Drexel University
 Intended status: Informational                                 E. Bermès
-Expires: 15 May 2025                         École nationale des Chartes
-                                                        11 November 2024
+Expires: 6 November 2025                     École nationale des Chartes
+                                                              5 May 2025
 
 
                        The ARK Identifier Scheme
@@ -64,11 +64,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 May 2025.
+   This Internet-Draft will expire on 6 November 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1056,11 +1056,6 @@ Table of Contents
        in a row (e.g., // or ./) are replaced by the first character,
        iterating until each occurrence has at least one non-structural
        character on either side.
-
-   9.  If there are any components with a period on the left and a slash
-       on the right, either the component and the preceding period must
-       be moved to the end of the Name part or the ARK must be thrown
-       out as malformed.
 
    The resulting ARK string is now normalized.  Comparisons between
    normalized ARKs are case-sensitive, meaning that uppercase letters
@@ -2172,7 +2167,7 @@ Appendix B.  Looking up NMAs Distributed via DNS
 Authors' Addresses
 
    John A. Kunze
-   Ronin Institute
+   Drexel University
    United States of America
    Email: jakkbl@gmail.com
 

@@ -6,7 +6,7 @@ wg: Network Working Group
 docname: draft-kunze-ark-latest
 ipr: trust200902
 submissiontype: IETF
-date: 2024
+date: 2025
 consensus: true
 pi:
   strict: yes
@@ -34,7 +34,7 @@ author:
   -
     ins: J. Kunze
     name: John A. Kunze
-    org: Ronin Institute
+    org: Drexel University
     country: USA
     email: "jakkbl@gmail.com"
   -
@@ -1195,11 +1195,6 @@ and final occurrences are removed, and two structural characters
 in a row (e.g., // or ./) are replaced by the first character,
 iterating until each occurrence has at least one non-structural
 character on either side.
-
-9.   If there are any components with a period on the left and a
-slash on the right, either the component and the preceding
-period must be moved to the end of the Name part or the ARK must
-be thrown out as malformed.
 
 The resulting ARK string is now normalized.  Comparisons between
 normalized ARKs are case-sensitive, meaning that uppercase letters

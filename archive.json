@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-26T01:20:41.108648+00:00",
+  "timestamp": "2025-06-29T01:37:44.167440+00:00",
   "repo": "arks-org/arkspec",
   "labels": [
     {
@@ -49,7 +49,39 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 5,
+      "id": "I_kwDOGnqRK869jydC",
+      "title": "Citation",
+      "url": "https://github.com/arks-org/arkspec/issues/5",
+      "state": "CLOSED",
+      "author": "athalhammer",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I'm trying to cite this specification and give credit to all current and former contributors. Would the following BibTex be correct?\n\n```\n@webpage{ARK,\n    author= \"John A. Kunze and R. P. Channing Rodgers and Emmanuelle Berm\u00e8s\",\n    title={{The ARK Identifier Scheme}},\n    url={https://datatracker.ietf.org/drafts/current/},\n    year=\"2001-2025\"\n}\n```",
+      "createdAt": "2025-06-26T20:10:21Z",
+      "updatedAt": "2025-06-27T08:32:49Z",
+      "closedAt": "2025-06-27T08:32:49Z",
+      "comments": [
+        {
+          "author": "jkunze",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The names are correct but perhaps not the formatting. I only know what I've been told about BibTex. According to https://tex.stackexchange.com/questions/36396/how-to-properly-write-multiple-authors-in-bibtex-file, it may be better to do\n\n`author= \"Kunze, J.A. and Rodgers, R.P.C. and Berm\u00e8s, E.\"`",
+          "createdAt": "2025-06-27T03:19:06Z",
+          "updatedAt": "2025-06-27T03:19:06Z"
+        },
+        {
+          "author": "athalhammer",
+          "authorAssociation": "NONE",
+          "body": "Thanks @jkunze , for the swift response. I'm a big admirer of this work. For me it was important to cite the right people. On top I've wondered if there was not an ARK for the resource itself. Regarding BibTex it seems to [offer some flexibility regarding names](https://nwalsh.com/tex/texhelp/bibtx-23.html) and I usually leave it to the BibTex style to abbreviate first names. Thank you!",
+          "createdAt": "2025-06-27T08:32:49Z",
+          "updatedAt": "2025-06-27T08:32:49Z"
+        }
+      ]
+    }
+  ],
   "pulls": [
     {
       "number": 1,

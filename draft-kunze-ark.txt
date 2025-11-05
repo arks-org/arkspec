@@ -5,8 +5,8 @@
 Network Working Group                                           J. Kunze
 Internet-Draft                                         Drexel University
 Intended status: Informational                                 E. Bermès
-Expires: 6 November 2025                     École nationale des Chartes
-                                                              5 May 2025
+Expires: 9 May 2026                          École nationale des Chartes
+                                                         5 November 2025
 
 
                        The ARK Identifier Scheme
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 November 2025.
+   This Internet-Draft will expire on 9 May 2026.
 
 Copyright Notice
 
@@ -1107,14 +1107,13 @@ Table of Contents
 
    Also, for a given identifier, the "responder" (last resolver) for an
    object request may be different from the responder for a metadata
-   request.  While maintenance of objects and their metadata are often
-   co-located in one organization, for technical reasons it is not
-   uncommon that requests for objects and metadata are forwarded to
-   different responders.  To add credibility to a persistence promise,
-   it can be useful to maintain a secondary copy of object metadata at
-   an external and publicly visible resolver.  For example, N2T.net was
-   originally designed to store a secondary copy of metadata for many
-   millions of identifiers.
+   request.  While maintenance of objects and their metadata often takes
+   place within one organization, the responder for object requests may
+   be different from the responder for metadata requests.  To add
+   credibility to a persistence promise, it can be useful to maintain a
+   secondary copy of object metadata at an external and publicly visible
+   resolver.  For example, N2T.net was originally designed to store a
+   secondary copy of metadata for many millions of identifiers.
 
    If an ARK Resolver Service receives a request for a NAAN that it
    knows nothing about, best practice is to redirect the request to
@@ -1902,19 +1901,19 @@ Table of Contents
 
    [ANVL]     Kunze, J., Kahle, B., Masanes, J., and G. Mohr, "A Name-
               Value Language", 2005,
-              <https://n2t.net/ark:/13030/c7x921j3h>.
+              <https://n2t.net/ark:13030/c7x921j3h>.
 
    [ARK]      Kunze, J., "Towards Electronic Persistence Using ARK
               Identifiers", IWAW/ECDL Annual Workshop Proceedings , 3
-              August 2003, <https://n2t.net/ark:/13030/c7n00zt1z>.
+              August 2003, <https://n2t.net/ark:13030/c7n00zt1z>.
 
    [ARKagency]
               ARK Alliance, "ARK Maintenance Agency", 2021,
               <https://arks.org>.
 
    [ARKAtech] ARK Alliance, "ARK Alliance Technical Working Group",
-              2022, <https://wiki.lyrasis.org/display/ARKs/
-              Technical+Working+Group>.
+              2022, <https://github.com/arks-org/arks.github.io/wiki/
+              ARKA-Technical-WG-wiki>.
 
    [ARKdrafts]
               ARK Alliance, "ARK Drafts Repository", 2022,
@@ -1934,7 +1933,7 @@ Table of Contents
 
    [ERC]      Kunze, J. and A. Turner, "Kernel Metadata and Electronic
               Resource Citations", October 2007,
-              <https://n2t.net/ark:/13030/c7sn0141m>.
+              <https://n2t.net/ark:13030/c7sn0141m>.
 
    [Handle]   Lannom, L., "Handle System Overview", ICSTI Forum No. 30 ,
               April 1999, <https://eric.ed.gov/?id=ED450775>.
@@ -1942,14 +1941,14 @@ Table of Contents
    [Kernel]   Kunze, J., "A Metadata Kernel for Electronic Permanence",
               Journal of Digital Information Vol 2, Issue 2, ISSN
               1368-7506 , January 2002,
-              <https://n2t.net/ark:/13030/c7rr1pm49>.
+              <https://n2t.net/ark:13030/c7rr1pm49>.
 
    [N2T]      ARK Alliance, "Name-to-Thing Resolver", August 2006,
               <https://n2t.net>.
 
    [NAANregistry]
               ARKs.org, "NAAN Registry", 2019,
-              <https://n2t.net/e/pub/naan_registry.txt>.
+              <https://cdluc3.github.io/naan_reg_priv/>.
 
    [NAANrequest]
               ARKs.org, "NAAN Request Form", 2018,
@@ -1961,12 +1960,12 @@ Table of Contents
               ma05_archive.html>.
 
    [NOID]     Kunze, J., "Nice Opaque Identifiers", April 2006,
-              <https://metacpan.org/dist/Noid/view/noid>.
+              <https://arks.org/resources/noid/>.
 
    [PStatements]
               Kunze, J., "Persistence statements: describing digital
               stickiness", October 2016,
-              <https://n2t.net/ark:/13030/c7833mx7t>.
+              <https://n2t.net/ark:13030/c7833mx7t>.
 
    [PURL]     Shafer, K., "Introduction to Persistent Uniform Resource
               Locators", 1996,
@@ -2028,10 +2027,11 @@ Table of Contents
 
    [shoulderrequest]
               ARKs.org, "Shoulder Request Form", 2021,
-              <https://n2t.net/e/shoulder_request>.
+              <https://docs.google.com/forms/d/10J2VxsaeQG-
+              IpkqZ6wpqAKqt8hYnMSf4bxdL8ktI-to>.
 
    [SPT]      Kunze, J., "What is Suffix Passthrough?", May 2021,
-              <http://n2t.net/e/suffix_passthrough.html>.
+              <https://arks.org/about/ark-suffix-passthrough/>.
 
    [THUMP]    Gamiel, K. and J. Kunze, "The HTTP URL Mapping Protocol",
               August 2007, <https://www.ietf.org/archive/id/draft-kunze-

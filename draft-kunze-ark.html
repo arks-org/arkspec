@@ -31,25 +31,24 @@ for the content of this Internet Draft.  The group homepage lists
 monthly meeting notes and agendas starting from March 2019.
 Revisions of the spec are maintained on github at  . 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="identifier" name="keyword">
 <meta content="archive" name="keyword">
 <meta content="PID" name="keyword">
 <meta content="draft-kunze-ark-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.1
-    Python 3.12.10
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
-    lxml 5.3.0
-    platformdirs 4.3.7
+    lxml 5.3.1
+    platformdirs 4.5.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
-    wcwidth 0.2.13
+    requests 2.32.5
+    wcwidth 0.2.14
 -->
 <link href="draft-kunze-ark.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1068,11 +1067,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ARK</td>
-<td class="right">May 2025</td>
+<td class="right">November 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Kunze &amp; Bermès</td>
-<td class="center">Expires 6 November 2025</td>
+<td class="center">Expires 9 May 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1085,12 +1084,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-kunze-ark-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-05" class="published">5 May 2025</time>
+<time datetime="2025-11-05" class="published">5 November 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-06">6 November 2025</time></dd>
+<dd class="expires"><time datetime="2026-05-09">9 May 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1158,7 +1157,7 @@ Revisions of the spec are maintained on github at <span>[<a href="#ARKdrafts" cl
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 6 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2403,10 +2402,10 @@ time, location, credentials, and technical platform of the client
 initiating resolution.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 <p id="section-3.3-4">Also, for a given identifier, the "responder" (last resolver) for an
 object request may be different from the responder for a metadata
-request.  While maintenance of objects and their metadata are often
-co-located in one organization, for technical reasons it is not
-uncommon that requests for objects and metadata are forwarded to
-different responders.  To add credibility to a persistence promise,
+request.  While maintenance of objects and their metadata often takes
+place within one organization, the responder for object requests may
+be different from the responder for metadata requests.
+To add credibility to a persistence promise,
 it can be useful to maintain a secondary copy of object metadata at
 an external and publicly visible resolver.  For example, N2T.net was
 originally designed to store a secondary copy of metadata for many
@@ -3271,11 +3270,11 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="ANVL">[ANVL]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span>, <span class="refAuthor">Kahle, B.</span>, <span class="refAuthor">Masanes, J.</span>, and <span class="refAuthor">G. Mohr</span>, <span class="refTitle">"A Name-Value Language"</span>, <time datetime="2005" class="refDate">2005</time>, <span>&lt;<a href="https://n2t.net/ark:/13030/c7x921j3h">https://n2t.net/ark:/13030/c7x921j3h</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span>, <span class="refAuthor">Kahle, B.</span>, <span class="refAuthor">Masanes, J.</span>, and <span class="refAuthor">G. Mohr</span>, <span class="refTitle">"A Name-Value Language"</span>, <time datetime="2005" class="refDate">2005</time>, <span>&lt;<a href="https://n2t.net/ark:13030/c7x921j3h">https://n2t.net/ark:13030/c7x921j3h</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ARK">[ARK]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"Towards Electronic Persistence Using ARK Identifiers"</span>, <span class="seriesInfo">IWAW/ECDL Annual Workshop Proceedings </span>, <time datetime="2003-08-03" class="refDate">3 August 2003</time>, <span>&lt;<a href="https://n2t.net/ark:/13030/c7n00zt1z">https://n2t.net/ark:/13030/c7n00zt1z</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"Towards Electronic Persistence Using ARK Identifiers"</span>, <span class="seriesInfo">IWAW/ECDL Annual Workshop Proceedings </span>, <time datetime="2003-08-03" class="refDate">3 August 2003</time>, <span>&lt;<a href="https://n2t.net/ark:13030/c7n00zt1z">https://n2t.net/ark:13030/c7n00zt1z</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ARKagency">[ARKagency]</dt>
       <dd>
@@ -3283,7 +3282,7 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="ARKAtech">[ARKAtech]</dt>
       <dd>
-<span class="refAuthor">ARK Alliance</span>, <span class="refTitle">"ARK Alliance Technical Working Group"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group">https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group</a>&gt;</span>. </dd>
+<span class="refAuthor">ARK Alliance</span>, <span class="refTitle">"ARK Alliance Technical Working Group"</span>, <time datetime="2022" class="refDate">2022</time>, <span>&lt;<a href="https://github.com/arks-org/arks.github.io/wiki/ARKA-Technical-WG-wiki">https://github.com/arks-org/arks.github.io/wiki/ARKA-Technical-WG-wiki</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ARKdrafts">[ARKdrafts]</dt>
       <dd>
@@ -3307,7 +3306,7 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="ERC">[ERC]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span> and <span class="refAuthor">A. Turner</span>, <span class="refTitle">"Kernel Metadata and Electronic Resource Citations"</span>, <time datetime="2007-10" class="refDate">October 2007</time>, <span>&lt;<a href="https://n2t.net/ark:/13030/c7sn0141m">https://n2t.net/ark:/13030/c7sn0141m</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span> and <span class="refAuthor">A. Turner</span>, <span class="refTitle">"Kernel Metadata and Electronic Resource Citations"</span>, <time datetime="2007-10" class="refDate">October 2007</time>, <span>&lt;<a href="https://n2t.net/ark:13030/c7sn0141m">https://n2t.net/ark:13030/c7sn0141m</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="Handle">[Handle]</dt>
       <dd>
@@ -3315,7 +3314,7 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="Kernel">[Kernel]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"A Metadata Kernel for Electronic Permanence"</span>, <span class="seriesInfo">Journal of Digital Information Vol 2, Issue 2, ISSN 1368-7506 </span>, <time datetime="2002-01" class="refDate">January 2002</time>, <span>&lt;<a href="https://n2t.net/ark:/13030/c7rr1pm49">https://n2t.net/ark:/13030/c7rr1pm49</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"A Metadata Kernel for Electronic Permanence"</span>, <span class="seriesInfo">Journal of Digital Information Vol 2, Issue 2, ISSN 1368-7506 </span>, <time datetime="2002-01" class="refDate">January 2002</time>, <span>&lt;<a href="https://n2t.net/ark:13030/c7rr1pm49">https://n2t.net/ark:13030/c7rr1pm49</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="N2T">[N2T]</dt>
       <dd>
@@ -3323,7 +3322,7 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="NAANregistry">[NAANregistry]</dt>
       <dd>
-<span class="refAuthor">ARKs.org</span>, <span class="refTitle">"NAAN Registry"</span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://n2t.net/e/pub/naan_registry.txt">https://n2t.net/e/pub/naan_registry.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">ARKs.org</span>, <span class="refTitle">"NAAN Registry"</span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://cdluc3.github.io/naan_reg_priv/">https://cdluc3.github.io/naan_reg_priv/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="NAANrequest">[NAANrequest]</dt>
       <dd>
@@ -3335,11 +3334,11 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="NOID">[NOID]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"Nice Opaque Identifiers"</span>, <time datetime="2006-04" class="refDate">April 2006</time>, <span>&lt;<a href="https://metacpan.org/dist/Noid/view/noid">https://metacpan.org/dist/Noid/view/noid</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"Nice Opaque Identifiers"</span>, <time datetime="2006-04" class="refDate">April 2006</time>, <span>&lt;<a href="https://arks.org/resources/noid/">https://arks.org/resources/noid/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="PStatements">[PStatements]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"Persistence statements: describing digital stickiness"</span>, <time datetime="2016-10" class="refDate">October 2016</time>, <span>&lt;<a href="https://n2t.net/ark:/13030/c7833mx7t">https://n2t.net/ark:/13030/c7833mx7t</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"Persistence statements: describing digital stickiness"</span>, <time datetime="2016-10" class="refDate">October 2016</time>, <span>&lt;<a href="https://n2t.net/ark:13030/c7833mx7t">https://n2t.net/ark:13030/c7833mx7t</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="PURL">[PURL]</dt>
       <dd>
@@ -3395,11 +3394,11 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="shoulderrequest">[shoulderrequest]</dt>
       <dd>
-<span class="refAuthor">ARKs.org</span>, <span class="refTitle">"Shoulder Request Form"</span>, <time datetime="2021" class="refDate">2021</time>, <span>&lt;<a href="https://n2t.net/e/shoulder_request">https://n2t.net/e/shoulder_request</a>&gt;</span>. </dd>
+<span class="refAuthor">ARKs.org</span>, <span class="refTitle">"Shoulder Request Form"</span>, <time datetime="2021" class="refDate">2021</time>, <span>&lt;<a href="https://docs.google.com/forms/d/10J2VxsaeQG-IpkqZ6wpqAKqt8hYnMSf4bxdL8ktI-to">https://docs.google.com/forms/d/10J2VxsaeQG-IpkqZ6wpqAKqt8hYnMSf4bxdL8ktI-to</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SPT">[SPT]</dt>
       <dd>
-<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"What is Suffix Passthrough?"</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="http://n2t.net/e/suffix_passthrough.html">http://n2t.net/e/suffix_passthrough.html</a>&gt;</span>. </dd>
+<span class="refAuthor">Kunze, J.</span>, <span class="refTitle">"What is Suffix Passthrough?"</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://arks.org/about/ark-suffix-passthrough/">https://arks.org/about/ark-suffix-passthrough/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="THUMP">[THUMP]</dt>
     <dd>

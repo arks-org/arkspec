@@ -69,7 +69,7 @@ informative:
     date: 2001-02
 
   ANVL:
-    target: "https://n2t.net/ark:/13030/c7x921j3h"
+    target: "https://n2t.net/ark:13030/c7x921j3h"
     title: "A Name-Value Language"
     author:
       -
@@ -88,7 +88,7 @@ informative:
     title: "Towards Electronic Persistence Using ARK Identifiers"
     seriesinfo: "IWAW/ECDL Annual Workshop Proceedings"
     date: 2003-08-03
-    target: https://n2t.net/ark:/13030/c7n00zt1z
+    target: https://n2t.net/ark:13030/c7n00zt1z
   ARKagency:
     author:
       -
@@ -102,7 +102,7 @@ informative:
         org: ARK Alliance
     title: "ARK Alliance Technical Working Group"
     date: 2022
-    target: https://wiki.lyrasis.org/display/ARKs/Technical+Working+Group
+    target: https://github.com/arks-org/arks.github.io/wiki/ARKA-Technical-WG-wiki
   ARKdrafts:
     author:
       -
@@ -139,7 +139,7 @@ informative:
         ins: A. Turner
     title: "Kernel Metadata and Electronic Resource Citations"
     date: 2007-10
-    target: https://n2t.net/ark:/13030/c7sn0141m
+    target: https://n2t.net/ark:13030/c7sn0141m
   Handle:
     author:
       -
@@ -155,7 +155,7 @@ informative:
     title: "A Metadata Kernel for Electronic Permanence"
     seriesinfo: "Journal of Digital Information Vol 2, Issue 2, ISSN 1368-7506"
     date: 2002-01
-    target: https://n2t.net/ark:/13030/c7rr1pm49
+    target: https://n2t.net/ark:13030/c7rr1pm49
   N2T:
     author:
       -
@@ -169,7 +169,7 @@ informative:
         org: ARKs.org
     title: "NAAN Registry"
     date: 2019
-    target: https://n2t.net/e/pub/naan_registry.txt
+    target: https://cdluc3.github.io/naan_reg_priv/
   NAANrequest:
     author:
       -
@@ -190,14 +190,14 @@ informative:
         name: John Kunze
     title: "Nice Opaque Identifiers"
     date: 2006-04
-    target: https://metacpan.org/dist/Noid/view/noid
+    target: https://arks.org/resources/noid/
   PStatements:
     author:
       -
         name: John Kunze
     title: "Persistence statements: describing digital stickiness"
     date: 2016-10
-    target: https://n2t.net/ark:/13030/c7833mx7t
+    target: https://n2t.net/ark:13030/c7833mx7t
   PURL:
     author:
       -
@@ -211,14 +211,14 @@ informative:
         org: ARKs.org
     title: "Shoulder Request Form"
     date: 2021
-    target: https://n2t.net/e/shoulder_request
+    target: https://docs.google.com/forms/d/10J2VxsaeQG-IpkqZ6wpqAKqt8hYnMSf4bxdL8ktI-to
   SPT:
     author:
       -
         name: John Kunze
     title: "What is Suffix Passthrough?"
     date: 2021-05
-    target: http://n2t.net/e/suffix_passthrough.html
+    target: https://arks.org/about/ark-suffix-passthrough/
   THUMP:
     author:
       -
@@ -1246,10 +1246,10 @@ initiating resolution.
 
 Also, for a given identifier, the "responder" (last resolver) for an
 object request may be different from the responder for a metadata
-request.  While maintenance of objects and their metadata are often
-co-located in one organization, for technical reasons it is not
-uncommon that requests for objects and metadata are forwarded to
-different responders.  To add credibility to a persistence promise,
+request.  While maintenance of objects and their metadata often takes
+place within one organization, the responder for object requests may
+be different from the responder for metadata requests.
+To add credibility to a persistence promise,
 it can be useful to maintain a secondary copy of object metadata at
 an external and publicly visible resolver.  For example, N2T.net was
 originally designed to store a secondary copy of metadata for many

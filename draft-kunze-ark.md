@@ -6,7 +6,7 @@ wg: Network Working Group
 docname: draft-kunze-ark-latest
 ipr: trust200902
 submissiontype: IETF
-date: 2025
+date: 2026
 consensus: true
 pi:
   strict: yes
@@ -205,13 +205,6 @@ informative:
     title: "Introduction to Persistent Uniform Resource Locators"
     date: 1996
     target: https://www.internetsociety.org/inet96/proceedings/a4/a4_1.htm
-  shoulderrequest:
-    author:
-      -
-        org: ARKs.org
-    title: "Shoulder Request Form"
-    date: 2021
-    target: https://docs.google.com/forms/d/10J2VxsaeQG-IpkqZ6wpqAKqt8hYnMSf4bxdL8ktI-to
   SPT:
     author:
       -
@@ -783,8 +776,11 @@ present, and future -- will appear in NAANs and carry unintended
 semantics.  It also helps usability by not mixing commonly confused
 characters ('0' and 'O', '1' and 'l') and by being compatible with
 strong transcription error detection (eg, the [NOID] check digit
-algorithm).  Since 2001, every assigned NAAN has consisted of exactly
-five digits.
+algorithm).
+
+Since 2001, every assigned NAAN has consisted of exactly five digits. Any
+pattern other than five digits is reserved, subject to future definition
+by the ARK Maintenance Agency [ARKagency].
 
 The NAAN designates a top-level ARK namespace.  Once registered for a
 namespace, a NAAN is never re-registered.  It is possible, however,
@@ -805,7 +801,7 @@ long term pragmatic benefit as described below.
 {: title="Four NAANs shared across all ARK-assigning organizations."}
 
 To make use of a shared NAAN, an organization has several options
-described in Section 2.4.1.
+described in the [Shoulders section](#shoulders).
 
 ## The Name Part
 
@@ -831,7 +827,7 @@ character.  Tools exists that mint, bind, and resolve opaque
 identifiers, with or without check characters [NOID].  More on naming
 considerations is given in a subsequent section.
 
-###  Optional: Shoulders
+###  Optional: Shoulders {#shoulders}
 
 Just as an ARK namespace is subdivided by NAANs reserved for NAAs, it
 is generally advantageous for an NAA to subdivide its own NAAN
@@ -885,7 +881,11 @@ To help manage each namespace into the future, NAAs are encouraged to
 create shoulders, even if there is only one to start with.  If an
 organization wishes to create a shoulder under one of shared NAANs
 (99999, 12345, 99152, or 99166, described in Table 2), it should fill
-out the Shoulder Request Form [shoulderrequest].
+out the NAAN Request form [NAANrequest], specifying in the additional
+information field that a shoulder (not a NAAN) is requested. This may
+also be used when a namespace splits such that all ARKs under one shoulder
+need to be redirected to a target different from that of the overall
+NAAN namespace (shoulder matching takes precedence over NAAN matching).
 
 ## The Qualifier Part
 

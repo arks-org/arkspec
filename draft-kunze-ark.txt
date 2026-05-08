@@ -5,8 +5,8 @@
 Network Working Group                                           J. Kunze
 Internet-Draft                                         Drexel University
 Intended status: Informational                                 E. Bermès
-Expires: 9 May 2026                          École nationale des Chartes
-                                                         5 November 2025
+Expires: 9 November 2026                     École nationale des Chartes
+                                                              8 May 2026
 
 
                        The ARK Identifier Scheme
@@ -64,11 +64,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 May 2026.
+   This Internet-Draft will expire on 9 November 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -632,8 +632,11 @@ Table of Contents
    semantics.  It also helps usability by not mixing commonly confused
    characters ('0' and 'O', '1' and 'l') and by being compatible with
    strong transcription error detection (eg, the [NOID] check digit
-   algorithm).  Since 2001, every assigned NAAN has consisted of exactly
-   five digits.
+   algorithm).
+
+   Since 2001, every assigned NAAN has consisted of exactly five digits.
+   Any pattern other than five digits is reserved, subject to future
+   definition by the ARK Maintenance Agency [ARKagency].
 
    The NAAN designates a top-level ARK namespace.  Once registered for a
    namespace, a NAAN is never re-registered.  It is possible, however,
@@ -690,7 +693,7 @@ Table of Contents
      Table 2: Four NAANs shared across all ARK-assigning organizations.
 
    To make use of a shared NAAN, an organization has several options
-   described in Section 2.4.1.
+   described in the Shoulders section (Section 2.4.1).
 
 2.4.  The Name Part
 
@@ -768,7 +771,12 @@ Table of Contents
    create shoulders, even if there is only one to start with.  If an
    organization wishes to create a shoulder under one of shared NAANs
    (99999, 12345, 99152, or 99166, described in Table 2), it should fill
-   out the Shoulder Request Form [shoulderrequest].
+   out the NAAN Request form [NAANrequest], specifying in the additional
+   information field that a shoulder (not a NAAN) is requested.  This
+   may also be used when a namespace splits such that all ARKs under one
+   shoulder need to be redirected to a target different from that of the
+   overall NAAN namespace (shoulder matching takes precedence over NAAN
+   matching).
 
 2.5.  The Qualifier Part
 
@@ -2024,11 +2032,6 @@ Table of Contents
    [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
               (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
               <https://www.rfc-editor.org/rfc/rfc8615>.
-
-   [shoulderrequest]
-              ARKs.org, "Shoulder Request Form", 2021,
-              <https://docs.google.com/forms/d/10J2VxsaeQG-
-              IpkqZ6wpqAKqt8hYnMSf4bxdL8ktI-to>.
 
    [SPT]      Kunze, J., "What is Suffix Passthrough?", May 2021,
               <https://arks.org/about/ark-suffix-passthrough/>.

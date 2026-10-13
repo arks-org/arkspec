@@ -1,3 +1,5 @@
+<!-- regenerate: on (set to off if you edit this file) -->
+
 # The ARK Identifier Scheme
 
 This is the working area for the individual Internet-Draft, "The ARK Identifier Scheme".
@@ -13,9 +15,8 @@ This is the working area for the individual Internet-Draft, "The ARK Identifier 
 See the
 [guidelines for contributions](https://github.com/arks-org/arkspec/blob/main/CONTRIBUTING.md).
 
-Contributions can be made by creating pull requests.
-The GitHub interface supports creating pull requests using the Edit (✏) button.
-
+The contributing file also has tips on how to make contributions, if you
+don't already know how to do that.
 
 ## Command Line Usage
 

@@ -702,16 +702,16 @@ automatically.
 ## The ARK Label Part (ark:)
 
 The label part distinguishes an ARK from an ordinary identifier.
-There is a new form of the label, "ark:", and an old form, "ark:/",
-both of which must be recognized in perpetuity.  Implementations
-should generate new ARKs in the new form (without the "/") and
-resolvers must always treat received ARKs as equivalent if they
-differ only in regard to new form versus old form labels.  Thus these
-two ARKs are equivalent:
+There is a modern form of the label, "ark:", and an older (classic) form,
+"ark:/", both of which must be recognized in perpetuity.  Implementations
+should generate ARKs in the modern form (without the "/") and resolvers must
+always treat received ARKs as equivalent if they differ only in regard to
+modern form versus classic (old) form labels.  Thus these two ARKs are
+equivalent:
 
 ~~~
-    ark:/12345/x6np1wh8k
      ark:12345/x6np1wh8k
+    ark:/12345/x6np1wh8k
 ~~~
 
 In a URL found in the wild, the label indicates that the URL stands a
@@ -1034,7 +1034,7 @@ those items.
 
 If the ARK contains an internal period after the Name, the piece to
 the left of the first such period is a root name and the piece to its
-right, and up to the end of the ARK or to the next period is a
+right, up to the end of the ARK or to the next period is a
 suffix.  A Name may have more than one suffix, for example,
 
 ~~~
@@ -1080,8 +1080,8 @@ relatedness among them.  The assigner is the sole arbiter of what
 constitutes a variant within its namespace, and whether to reveal
 that kind of relatedness by using periods within its names.
 
-A period must have at least one non-structural character (one that is
-neither a slash nor a period) on both sides in order for it to
+A period must have at least one non-structural character (neither
+a slash nor a period) on both sides in order for it to
 separate recognizable structural components.  So initial or final
 periods may be removed, and adjacent periods may be converted into a
 single period.

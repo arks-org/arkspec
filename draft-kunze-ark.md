@@ -285,8 +285,8 @@ browsers.  ARKs represent an approach that attempts to build on the
 strengths and to avoid the weaknesses of these schemes.  For example,
 like URNs, ARKs have an internal label ("ark:") to help them be
 recognizable as globally unique identifiers in a post-HTTP Internet.
-Unlike DOIs and Handles, ARKs can be created without centralized fee-
-based infrastructures.  ARK resolvers can take advantage of advanced
+Unlike DOIs and Handles, ARKs can be created without centralized
+fee-based infrastructures.  ARK resolvers can take advantage of advanced
 resolution features such as content negotiation (like DOIs) and
 suffix passthrough [SPT] (similar to PURL partial redirects).  Like
 PURLs, ARKs openly embrace URLs as the best current choice for
@@ -319,8 +319,8 @@ persistence providers, and no identifier scheme has any direct impact
 on them.  In fact, some schemes may actually be liabilities for
 persistence because they create short- and long-term dependencies for
 every object access on complex, special-purpose infrastructures,
-parts of which are proprietary and all of which increase the carry-
-forward burden for the preservation community.  It is for this reason
+parts of which are proprietary and all of which increase the carry-forward
+burden for the preservation community.  It is for this reason
 that the ARK scheme relies only on educated name assignment and light
 use of general-purpose infrastructures that are maintained mostly by
 the Internet community at large (the DNS, web servers, and web
@@ -331,16 +331,40 @@ be commercially attractive, and likely to be undertaken by only a
 small fraction of content providers that have preservation in their
 mission.  This vision runs counter to some early predictions that
 technology-backed persistent identifiers would somehow become
-ubiquitous.  On the plus side, persistent identifier solutions should
-not need to be "internet scale".
+ubiquitous.  On the plus side, persistent identifier (PID) schemes
+such as ARK, DOI, Handle PURL, and URN should not need to be "Internet scale".
 
 ## Reasons to Use ARKs
 
-If no persistent identifier scheme contributes directly to
+If no PID scheme contributes directly to
 persistence, why not just use URLs?  A particular URL may be as
 durable an identifier as it is possible to have, but nothing
 distinguishes it from an ordinary URL to the recipient who is
-wondering if it is suitable for long-term reference.  An ARK embedded
+wondering if it is suitable for long-term reference.
+After doing the hard work to protect content and links -- from human error,
+fire, flood, bankruptcy, politics, and cyber attack -- sites often display each
+durable URL next to a label like "permalink" or "persistent identifier" to
+indicate their commitment. The problem is that URLs encountered on the open
+Internet (e.g., in search results) become separated from such labels. A PID is
+a URL recognizable in the wild as a permalink simply by inspecting the string
+for hints such as "ark:", "doi.org/10.", or "urn:". Some PIDs require
+centralized registration and publication via a scheme-specific resolver,
+introducing dependencies on third party resolvers and APIs. ARKs do not come
+with these requirements but do offer a centralized resolver for organizations
+that prefer it.
+
+The primary value in creating PIDs is to help an organization leverage its
+permalink investment by signaling their presence to recipients in the outside
+world. If it already rises to the considerable socio-organizational and
+workflow challenges required to provide permalinks, adding PID support is
+relatively easy. Implementing basic ARK resolution, in fact, can be as
+technically trivial as adding a rewrite rule to a server configuration file.
+Although PIDs never guarantee persistence, applications (especially at scale)
+and human users benefit because PIDs can quickly be spotted in the wild as
+permalinks from among the vast majority of URLs that were created with no
+thought for persistence.
+
+An ARK embedded
 in a URL provides some of the necessary conditions for credible
 persistence, inviting access to not one, but to three things: to the
 object, to its metadata, and to a nuanced statement of commitment
@@ -374,8 +398,8 @@ hostnames with persistence in mind.
 ## Three Requirements of ARKs
 
 The first requirement of an ARK is to give users a link from an
-object to a promise of stewardship for it.  That promise is a multi-
-faceted covenant that binds the word of an identified service
+object to a promise of stewardship for it.  That promise is a multi-faceted
+covenant that binds the word of an identified service
 provider to a specific set of responsibilities.  It is critical for
 the promise to come from a current provider and almost irrelevant,
 over a long period of time, what the original assigner's intentions
@@ -453,7 +477,7 @@ In the Their Stuff problem, we in the organization want others'
 objects to acquire persistent names.  These are objects that we do
 not own or control, but some of which are critically important to us.
 But because they are beyond our influence as far as support is
-concerned, creating and maintaining persistent identifiers for Their
+concerned, creating and maintaining PIDs for Their
 Stuff is not especially purposeful or feasible for us to engage in.
 There is little that we can do about someone else's stuff except
 encourage their uptake or adoption of persistence services.
@@ -489,8 +513,8 @@ business model for an ARK-like, description-only service built on top
 of another organization's full complement of ARK services.  For
 example, there might be competition at the description level for
 abstracting and indexing a body of scientific literature archived in
-a combination of open and fee-based repositories.  The description-
-only service would have no direct commitment to the objects, but
+a combination of open and fee-based repositories.  The description-only
+service would have no direct commitment to the objects, but
 would act as an intermediary, forwarding commitment statements from
 object hosting services to requestors.
 
@@ -837,8 +861,8 @@ characters that follows the "ark:" label, a shoulder is a string of
 characters (starting with a "/") that extends the NAAN.  The base
 compact name assigned by the NAA consists of the NAAN, the shoulder,
 a final string known as the "blade".  (The shoulder plus blade
-terminology mirrors locksmith jargon describing the information-
-bearing parts of a key.)
+terminology mirrors locksmith jargon describing the information-bearing
+parts of a key.)
 
 The blade string is chosen by the NAA such that the string created by
 concatenating the NAAN plus shoulder plus blade becomes the unique
@@ -868,8 +892,8 @@ boundary (see the section on ARKs that reveal object hierarchy).
 This little bit of discretion shields organizations from end users
 making inferences about expected levels of support based on
 recognizable shoulders.  To help in-house ARK administrators reliably
-know where the shoulder ends, it is recommended to use the "first-
-digit convention" so that shoulders are "primordinal".  A primordinal
+know where the shoulder ends, it is recommended to use the "first-digit
+convention" so that shoulders are "primordinal".  A primordinal
 shoulder is a sequence of one or more betanumeric characters ending
 in a digit, as shown above.  This means that the shoulder is all
 consonant letters (often just one) after the NAAN and "/" up to and
@@ -951,8 +975,8 @@ semantic opaqueness constraint.  When an NMA-qualified ARK is to be
 used as a transient service entry point into a persistent object, the
 priority given to semantic opaqueness observed by the NAA in the Name
 part may be relaxed by the NMA in the Qualifier part.  If service
-priorities in the Qualifier take precedence over persistence, short-
-term usability considerations may recommend somewhat semantically
+priorities in the Qualifier take precedence over persistence, short-term
+usability considerations may recommend somewhat semantically
 laden Qualifier strings.
 
 Finally, not only is the set of Qualifiers supported by an NMA
@@ -1182,8 +1206,8 @@ removing any terminal '/').
 occurrence of '%' are converted to uppercase.  The case of all
 other letters in the ARK string must be preserved.
 
-6.   All hyphens are removed.  Implementors should be aware that non-
-ASCII hyphen-like characters (eg, U+2010 to U+2015) may arrive
+6.   All hyphens are removed.  Implementors should be aware that non-ASCII
+hyphen-like characters (eg, U+2010 to U+2015) may arrive
 in the place of hyphens and, if they wish, remove them.
 
 7.   If normalization is being done as part of a resolution step, and
@@ -1234,8 +1258,8 @@ most BnF ARKs will not start with n2t.net.
 Resolution in general can be seen as a multi-stage computation that
 maps a client identifier to some sort of response.  On the web, each
 resolver in the chain is an HTTP server; even if the "responder"
-(last resolver) is a proxy server that intiates a non-web sub-
-resolution process, that is invisible to the original client and out
+(last resolver) is a proxy server that initiates a non-web sub-resolution
+process, that is invisible to the original client and out
 of scope for this discussion.  A web resolution response may take on
 a variety of forms, including the return of a landing page, or a
 metadata record, or a web-based 404 Not Found message.  A given
@@ -1459,10 +1483,10 @@ you require brand visibility, that may be a fact of life.  But things
 are easier if yours is the brand of long-lived cultural memory
 institution such as a national or university library or archive.
 Well-chosen hostnames from organizations that are sheltered from the
-direct effects of a volatile marketplace can easily provide longer-
-lived global resolvers than the domain names explicitly or implicitly
+direct effects of a volatile marketplace can easily provide longer-lived
+global resolvers than the domain names explicitly or implicitly
 used as starting points for global resolution by indirection-based
-persistent identifier schemes.  For example, it is hard to imagine
+PID schemes.  For example, it is hard to imagine
 circumstances under which the Library of Congress' domain name would
 disappear sooner than, say, "handle.net".
 
@@ -1489,8 +1513,8 @@ is a misconception that the demise of DNS and of HTTP need adversely
 affect the persistence of URLs.  At such a time, certainly URLs from
 the present day might not then be actionable by our present-day
 mechanisms, but resolution systems for future non-actionable URLs are
-no harder to imagine than resolution systems for present-day non-
-actionable URNs and DOIs.  There is no more stable a namespace than
+no harder to imagine than resolution systems for present-day non-actionable
+URNs and DOIs.  There is no more stable a namespace than
 one that is dead and frozen, and that would then characterize the
 space of names bearing the "http://" or "https://" prefix.  It is
 useful to remember that just because hostnames have been carelessly
@@ -1552,8 +1576,8 @@ care to reserve shoulders (semantically opaque shoulders being
 preferred) for distinct assignment streams.  Prefix-based partition
 management is typically an important responsibility of the NAA.
 
-This shoulder delegation approach plays out differently in two real-
-world examples: DNS names and ISBN identifiers.  In the former, the
+This shoulder delegation approach plays out differently in two real-world
+examples: DNS names and ISBN identifiers.  In the former, the
 hierarchy is deliberately exposed and in the latter it is hidden.
 Rather than using lexical boundary markers such as the period ('.')
 found in domain names, the ISBN uses a publisher prefix but doesn't

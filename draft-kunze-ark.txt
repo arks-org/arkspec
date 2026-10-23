@@ -5,8 +5,8 @@
 Network Working Group                                           J. Kunze
 Internet-Draft                                         Drexel University
 Intended status: Informational                                 E. Bermès
-Expires: 9 November 2026                     École nationale des Chartes
-                                                              8 May 2026
+Expires: 26 April 2027                       École nationale des Chartes
+                                                         23 October 2026
 
 
                        The ARK Identifier Scheme
@@ -64,7 +64,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 November 2026.
+   This Internet-Draft will expire on 26 April 2027.
 
 Copyright Notice
 
@@ -198,21 +198,46 @@ Table of Contents
    small fraction of content providers that have preservation in their
    mission.  This vision runs counter to some early predictions that
    technology-backed persistent identifiers would somehow become
-   ubiquitous.  On the plus side, persistent identifier solutions should
-   not need to be "internet scale".
+   ubiquitous.  On the plus side, persistent identifier (PID) schemes
+   such as ARK, DOI, Handle PURL, and URN should not need to be
+   "Internet scale".
 
 1.1.  Reasons to Use ARKs
 
-   If no persistent identifier scheme contributes directly to
-   persistence, why not just use URLs?  A particular URL may be as
-   durable an identifier as it is possible to have, but nothing
-   distinguishes it from an ordinary URL to the recipient who is
-   wondering if it is suitable for long-term reference.  An ARK embedded
-   in a URL provides some of the necessary conditions for credible
-   persistence, inviting access to not one, but to three things: to the
-   object, to its metadata, and to a nuanced statement of commitment
-   from the provider in question (the NMA, described below) regarding
-   the object.  Existence of the extra service can be probed
+   If no PID scheme contributes directly to persistence, why not just
+   use URLs?  A particular URL may be as durable an identifier as it is
+   possible to have, but nothing distinguishes it from an ordinary URL
+   to the recipient who is wondering if it is suitable for long-term
+   reference.  After doing the hard work to protect content and links --
+   from human error, fire, flood, bankruptcy, politics, and cyber attack
+   -- sites often display each durable URL next to a label like
+   "permalink" or "persistent identifier" to indicate their commitment.
+   The problem is that URLs encountered on the open Internet (e.g., in
+   search results) become separated from such labels.  A PID is a URL
+   recognizable in the wild as a permalink simply by inspecting the
+   string for hints such as "ark:", "doi.org/10.", or "urn:".  Some PIDs
+   require centralized registration and publication via a scheme-
+   specific resolver, introducing dependencies on third party resolvers
+   and APIs.  ARKs do not come with these requirements but do offer a
+   centralized resolver for organizations that prefer it.
+
+   The primary value in creating PIDs is to help an organization
+   leverage its permalink investment by signaling their presence to
+   recipients in the outside world.  If it already rises to the
+   considerable socio-organizational and workflow challenges required to
+   provide permalinks, adding PID support is relatively easy.
+   Implementing basic ARK resolution, in fact, can be as technically
+   trivial as adding a rewrite rule to a server configuration file.
+   Although PIDs never guarantee persistence, applications (especially
+   at scale) and human users benefit because PIDs can quickly be spotted
+   in the wild as permalinks from among the vast majority of URLs that
+   were created with no thought for persistence.
+
+   An ARK embedded in a URL provides some of the necessary conditions
+   for credible persistence, inviting access to not one, but to three
+   things: to the object, to its metadata, and to a nuanced statement of
+   commitment from the provider in question (the NMA, described below)
+   regarding the object.  Existence of the extra service can be probed
    automatically by appending "?info" to the ARK.
 
    The form of the ARK also supports the natural separation of naming
@@ -320,10 +345,10 @@ Table of Contents
    objects to acquire persistent names.  These are objects that we do
    not own or control, but some of which are critically important to us.
    But because they are beyond our influence as far as support is
-   concerned, creating and maintaining persistent identifiers for Their
-   Stuff is not especially purposeful or feasible for us to engage in.
-   There is little that we can do about someone else's stuff except
-   encourage their uptake or adoption of persistence services.
+   concerned, creating and maintaining PIDs for Their Stuff is not
+   especially purposeful or feasible for us to engage in.  There is
+   little that we can do about someone else's stuff except encourage
+   their uptake or adoption of persistence services.
 
    Co-location of persistent access and identification services is
    natural.  Any organization that undertakes ongoing support of true
@@ -564,15 +589,15 @@ Table of Contents
 2.2.  The ARK Label Part (ark:)
 
    The label part distinguishes an ARK from an ordinary identifier.
-   There is a new form of the label, "ark:", and an old form, "ark:/",
-   both of which must be recognized in perpetuity.  Implementations
-   should generate new ARKs in the new form (without the "/") and
-   resolvers must always treat received ARKs as equivalent if they
-   differ only in regard to new form versus old form labels.  Thus these
-   two ARKs are equivalent:
+   There is a modern form of the label, "ark:", and an older (classic)
+   form, "ark:/", both of which must be recognized in perpetuity.
+   Implementations should generate ARKs in the modern form (without the
+   "/") and resolvers must always treat received ARKs as equivalent if
+   they differ only in regard to modern form versus classic (old) form
+   labels.  Thus these two ARKs are equivalent:
 
-       ark:/12345/x6np1wh8k
         ark:12345/x6np1wh8k
+       ark:/12345/x6np1wh8k
 
    In a URL found in the wild, the label indicates that the URL stands a
    reasonable chance of being an ARK.  If the context warrants,
@@ -917,8 +942,8 @@ Table of Contents
 
    If the ARK contains an internal period after the Name, the piece to
    the left of the first such period is a root name and the piece to its
-   right, and up to the end of the ARK or to the next period is a
-   suffix.  A Name may have more than one suffix, for example,
+   right, up to the end of the ARK or to the next period is a suffix.  A
+   Name may have more than one suffix, for example,
 
        ark:12345/x54.24
        ark:12345/x4z/x54.24
@@ -955,11 +980,11 @@ Table of Contents
    constitutes a variant within its namespace, and whether to reveal
    that kind of relatedness by using periods within its names.
 
-   A period must have at least one non-structural character (one that is
-   neither a slash nor a period) on both sides in order for it to
-   separate recognizable structural components.  So initial or final
-   periods may be removed, and adjacent periods may be converted into a
-   single period.
+   A period must have at least one non-structural character (neither a
+   slash nor a period) on both sides in order for it to separate
+   recognizable structural components.  So initial or final periods may
+   be removed, and adjacent periods may be converted into a single
+   period.
 
 3.  ARK Processing
 
@@ -1103,7 +1128,7 @@ Table of Contents
    Resolution in general can be seen as a multi-stage computation that
    maps a client identifier to some sort of response.  On the web, each
    resolver in the chain is an HTTP server; even if the "responder"
-   (last resolver) is a proxy server that intiates a non-web sub-
+   (last resolver) is a proxy server that initiates a non-web sub-
    resolution process, that is invisible to the original client and out
    of scope for this discussion.  A web resolution response may take on
    a variety of forms, including the return of a landing page, or a
@@ -1334,9 +1359,9 @@ Table of Contents
    direct effects of a volatile marketplace can easily provide longer-
    lived global resolvers than the domain names explicitly or implicitly
    used as starting points for global resolution by indirection-based
-   persistent identifier schemes.  For example, it is hard to imagine
-   circumstances under which the Library of Congress' domain name would
-   disappear sooner than, say, "handle.net".
+   PID schemes.  For example, it is hard to imagine circumstances under
+   which the Library of Congress' domain name would disappear sooner
+   than, say, "handle.net".
 
    For smaller libraries, archives, and preservation organizations,
    there is a natural concern about whether they will be able to keep
@@ -1981,7 +2006,7 @@ Table of Contents
               a4_1.htm>.
 
    [RFC0854]  Postel, J. and J. Reynolds, "Telnet Protocol
-              Specification", STD 8, RFC 854, DOI 10.17487/RFC0854, May
+              Specification", STD 8, RFC 854, DOI 10.17487/RFC854, May
               1983, <https://www.rfc-editor.org/rfc/rfc854>.
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",

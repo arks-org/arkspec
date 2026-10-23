@@ -31,24 +31,25 @@ for the content of this Internet Draft.  The group homepage lists
 monthly meeting notes and agendas starting from March 2019.
 Revisions of the spec are maintained on github at  . 
     " name="description">
-<meta content="xml2rfc 3.33.0" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="identifier" name="keyword">
 <meta content="archive" name="keyword">
 <meta content="PID" name="keyword">
 <meta content="draft-kunze-ark-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.33.0
-    Python 3.12.13
-    ConfigArgParse 1.7
+  xml2rfc 3.34.1
+    Python 3.14.8
+    ConfigArgParse 1.8.0
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 6.0.2
-    platformdirs 4.9.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.13.4
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.7.0
+    wcwidth 0.9.2
 -->
 <link href="draft-kunze-ark.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -84,7 +85,6 @@ Revisions of the spec are maintained on github at  .
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -133,7 +133,6 @@ Revisions of the spec are maintained on github at  .
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -198,7 +197,6 @@ Revisions of the spec are maintained on github at  .
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 }
 
 @font-face {
@@ -315,16 +313,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -344,10 +345,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -358,59 +359,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -448,26 +449,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -483,20 +483,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -532,9 +534,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -544,17 +546,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -604,25 +608,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -642,13 +638,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -659,18 +648,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow, a.pilcrow:focus {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -729,9 +716,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -821,23 +808,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -848,19 +839,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -881,54 +874,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -947,26 +940,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -982,12 +975,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1049,17 +1043,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1069,11 +1065,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ARK</td>
-<td class="right">May 2026</td>
+<td class="right">October 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Kunze &amp; Bermès</td>
-<td class="center">Expires 9 November 2026</td>
+<td class="center">Expires 26 April 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1086,12 +1082,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-kunze-ark-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-08" class="published">8 May 2026</time>
+<time datetime="2026-10-23" class="published">23 October 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-09">9 November 2026</time></dd>
+<dd class="expires"><time datetime="2027-04-26">26 April 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1159,7 +1155,7 @@ Revisions of the spec are maintained on github at <span>[<a href="#ARKdrafts" cl
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 April 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1361,8 +1357,8 @@ browsers.  ARKs represent an approach that attempts to build on the
 strengths and to avoid the weaknesses of these schemes.  For example,
 like URNs, ARKs have an internal label ("ark:") to help them be
 recognizable as globally unique identifiers in a post-HTTP Internet.
-Unlike DOIs and Handles, ARKs can be created without centralized fee-
-based infrastructures.  ARK resolvers can take advantage of advanced
+Unlike DOIs and Handles, ARKs can be created without centralized
+fee-based infrastructures.  ARK resolvers can take advantage of advanced
 resolution features such as content negotiation (like DOIs) and
 suffix passthrough <span>[<a href="#SPT" class="cite xref">SPT</a>]</span> (similar to PURL partial redirects).  Like
 PURLs, ARKs openly embrace URLs as the best current choice for
@@ -1393,8 +1389,8 @@ persistence providers, and no identifier scheme has any direct impact
 on them.  In fact, some schemes may actually be liabilities for
 persistence because they create short- and long-term dependencies for
 every object access on complex, special-purpose infrastructures,
-parts of which are proprietary and all of which increase the carry-
-forward burden for the preservation community.  It is for this reason
+parts of which are proprietary and all of which increase the carry-forward
+burden for the preservation community.  It is for this reason
 that the ARK scheme relies only on educated name assignment and light
 use of general-purpose infrastructures that are maintained mostly by
 the Internet community at large (the DNS, web servers, and web
@@ -1404,25 +1400,47 @@ be commercially attractive, and likely to be undertaken by only a
 small fraction of content providers that have preservation in their
 mission.  This vision runs counter to some early predictions that
 technology-backed persistent identifiers would somehow become
-ubiquitous.  On the plus side, persistent identifier solutions should
-not need to be "internet scale".<a href="#section-1-5" class="pilcrow">¶</a></p>
+ubiquitous.  On the plus side, persistent identifier (PID) schemes
+such as ARK, DOI, Handle PURL, and URN should not need to be "Internet scale".<a href="#section-1-5" class="pilcrow">¶</a></p>
 <div id="reasons-to-use-arks">
 <section id="section-1.1">
         <h3 id="name-reasons-to-use-arks">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-reasons-to-use-arks" class="section-name selfRef">Reasons to Use ARKs</a>
         </h3>
-<p id="section-1.1-1">If no persistent identifier scheme contributes directly to
+<p id="section-1.1-1">If no PID scheme contributes directly to
 persistence, why not just use URLs?  A particular URL may be as
 durable an identifier as it is possible to have, but nothing
 distinguishes it from an ordinary URL to the recipient who is
-wondering if it is suitable for long-term reference.  An ARK embedded
+wondering if it is suitable for long-term reference.
+After doing the hard work to protect content and links -- from human error,
+fire, flood, bankruptcy, politics, and cyber attack -- sites often display each
+durable URL next to a label like "permalink" or "persistent identifier" to
+indicate their commitment. The problem is that URLs encountered on the open
+Internet (e.g., in search results) become separated from such labels. A PID is
+a URL recognizable in the wild as a permalink simply by inspecting the string
+for hints such as "ark:", "doi.org/10.", or "urn:". Some PIDs require
+centralized registration and publication via a scheme-specific resolver,
+introducing dependencies on third party resolvers and APIs. ARKs do not come
+with these requirements but do offer a centralized resolver for organizations
+that prefer it.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">The primary value in creating PIDs is to help an organization leverage its
+permalink investment by signaling their presence to recipients in the outside
+world. If it already rises to the considerable socio-organizational and
+workflow challenges required to provide permalinks, adding PID support is
+relatively easy. Implementing basic ARK resolution, in fact, can be as
+technically trivial as adding a rewrite rule to a server configuration file.
+Although PIDs never guarantee persistence, applications (especially at scale)
+and human users benefit because PIDs can quickly be spotted in the wild as
+permalinks from among the vast majority of URLs that were created with no
+thought for persistence.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">An ARK embedded
 in a URL provides some of the necessary conditions for credible
 persistence, inviting access to not one, but to three things: to the
 object, to its metadata, and to a nuanced statement of commitment
 from the provider in question (the NMA, described below) regarding
 the object.  Existence of the extra service can be probed
-automatically by appending "?info" to the ARK.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">The form of the ARK also supports the natural separation of naming
+automatically by appending "?info" to the ARK.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-4">The form of the ARK also supports the natural separation of naming
 authorities into the original name assigning authority and the
 diverse multiple name mapping (or servicing) authorities that in
 succession and in parallel will take over custodial responsibilities
@@ -1437,12 +1455,12 @@ disposeable and replaceable.  Again, the form of the ARK helps
 because it defines exactly how to recover the core immutable object
 identity, and simple algorithms (one based on the URN model) or even
 by-hand Internet query can be used for for locating another mapping
-authority.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
-<p id="section-1.1-3">There are tools to assist in generating ARKs and other identifiers,
+authority.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
+<p id="section-1.1-5">There are tools to assist in generating ARKs and other identifiers,
 such as <span>[<a href="#NOID" class="cite xref">NOID</a>]</span> and "uuidgen", both of which rely for uniqueness on
 human-maintained registries.  This document also contains some
 guidelines and considerations for managing namespaces and choosing
-hostnames with persistence in mind.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+hostnames with persistence in mind.<a href="#section-1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="three-requirements-of-arks">
@@ -1451,8 +1469,8 @@ hostnames with persistence in mind.<a href="#section-1.1-3" class="pilcrow">¶</
 <a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-three-requirements-of-arks" class="section-name selfRef">Three Requirements of ARKs</a>
         </h3>
 <p id="section-1.2-1">The first requirement of an ARK is to give users a link from an
-object to a promise of stewardship for it.  That promise is a multi-
-faceted covenant that binds the word of an identified service
+object to a promise of stewardship for it.  That promise is a multi-faceted
+covenant that binds the word of an identified service
 provider to a specific set of responsibilities.  It is critical for
 the promise to come from a current provider and almost irrelevant,
 over a long period of time, what the original assigner's intentions
@@ -1529,7 +1547,7 @@ objects.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 objects to acquire persistent names.  These are objects that we do
 not own or control, but some of which are critically important to us.
 But because they are beyond our influence as far as support is
-concerned, creating and maintaining persistent identifiers for Their
+concerned, creating and maintaining PIDs for Their
 Stuff is not especially purposeful or feasible for us to engage in.
 There is little that we can do about someone else's stuff except
 encourage their uptake or adoption of persistence services.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
@@ -1562,8 +1580,8 @@ business model for an ARK-like, description-only service built on top
 of another organization's full complement of ARK services.  For
 example, there might be competition at the description level for
 abstracting and indexing a body of scientific literature archived in
-a combination of open and fee-based repositories.  The description-
-only service would have no direct commitment to the objects, but
+a combination of open and fee-based repositories.  The description-only
+service would have no direct commitment to the objects, but
 would act as an intermediary, forwarding commitment statements from
 object hosting services to requestors.<a href="#section-1.3-5" class="pilcrow">¶</a></p>
 </section>
@@ -1808,16 +1826,16 @@ automatically.<a href="#section-2.1-7" class="pilcrow">¶</a></p>
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-the-ark-label-part-ark" class="section-name selfRef">The ARK Label Part (ark:)</a>
         </h3>
 <p id="section-2.2-1">The label part distinguishes an ARK from an ordinary identifier.
-There is a new form of the label, "ark:", and an old form, "ark:/",
-both of which must be recognized in perpetuity.  Implementations
-should generate new ARKs in the new form (without the "/") and
-resolvers must always treat received ARKs as equivalent if they
-differ only in regard to new form versus old form labels.  Thus these
-two ARKs are equivalent:<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+There is a modern form of the label, "ark:", and an older (classic) form,
+"ark:/", both of which must be recognized in perpetuity.  Implementations
+should generate ARKs in the modern form (without the "/") and resolvers must
+always treat received ARKs as equivalent if they differ only in regard to
+modern form versus classic (old) form labels.  Thus these two ARKs are
+equivalent:<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-2.2-2">
 <pre>
-    ark:/12345/x6np1wh8k
      ark:12345/x6np1wh8k
+    ark:/12345/x6np1wh8k
 </pre><a href="#section-2.2-2" class="pilcrow">¶</a>
 </div>
 <p id="section-2.2-3">In a URL found in the wild, the label indicates that the URL stands a
@@ -1981,8 +1999,8 @@ characters that follows the "ark:" label, a shoulder is a string of
 characters (starting with a "/") that extends the NAAN.  The base
 compact name assigned by the NAA consists of the NAAN, the shoulder,
 a final string known as the "blade".  (The shoulder plus blade
-terminology mirrors locksmith jargon describing the information-
-bearing parts of a key.)<a href="#section-2.4.1-1" class="pilcrow">¶</a></p>
+terminology mirrors locksmith jargon describing the information-bearing
+parts of a key.)<a href="#section-2.4.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.4.1-2">The blade string is chosen by the NAA such that the string created by
 concatenating the NAAN plus shoulder plus blade becomes the unique
 base object name.  Otherwise the blade may come from any source, for
@@ -2010,8 +2028,8 @@ boundary (see the section on ARKs that reveal object hierarchy).<a href="#sectio
 <p id="section-2.4.1-5">This little bit of discretion shields organizations from end users
 making inferences about expected levels of support based on
 recognizable shoulders.  To help in-house ARK administrators reliably
-know where the shoulder ends, it is recommended to use the "first-
-digit convention" so that shoulders are "primordinal".  A primordinal
+know where the shoulder ends, it is recommended to use the "first-digit
+convention" so that shoulders are "primordinal".  A primordinal
 shoulder is a sequence of one or more betanumeric characters ending
 in a digit, as shown above.  This means that the shoulder is all
 consonant letters (often just one) after the NAAN and "/" up to and
@@ -2094,8 +2112,8 @@ semantic opaqueness constraint.  When an NMA-qualified ARK is to be
 used as a transient service entry point into a persistent object, the
 priority given to semantic opaqueness observed by the NAA in the Name
 part may be relaxed by the NMA in the Qualifier part.  If service
-priorities in the Qualifier take precedence over persistence, short-
-term usability considerations may recommend somewhat semantically
+priorities in the Qualifier take precedence over persistence, short-term
+usability considerations may recommend somewhat semantically
 laden Qualifier strings.<a href="#section-2.5-7" class="pilcrow">¶</a></p>
 <p id="section-2.5-8">Finally, not only is the set of Qualifiers supported by an NMA
 mutable, but different NMAs may support different Qualifier sets for
@@ -2178,7 +2196,7 @@ order to retrieve and analyze the inter-relatedness among all of
 those items.<a href="#section-2.5.2-1" class="pilcrow">¶</a></p>
 <p id="section-2.5.2-2">If the ARK contains an internal period after the Name, the piece to
 the left of the first such period is a root name and the piece to its
-right, and up to the end of the ARK or to the next period is a
+right, up to the end of the ARK or to the next period is a
 suffix.  A Name may have more than one suffix, for example,<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-2.5.2-3">
 <pre>
@@ -2223,8 +2241,8 @@ alone to multiple variants' names and to a specific, ongoing
 relatedness among them.  The assigner is the sole arbiter of what
 constitutes a variant within its namespace, and whether to reveal
 that kind of relatedness by using periods within its names.<a href="#section-2.5.2-10" class="pilcrow">¶</a></p>
-<p id="section-2.5.2-11">A period must have at least one non-structural character (one that is
-neither a slash nor a period) on both sides in order for it to
+<p id="section-2.5.2-11">A period must have at least one non-structural character (neither
+a slash nor a period) on both sides in order for it to
 separate recognizable structural components.  So initial or final
 periods may be removed, and adjacent periods may be converted into a
 single period.<a href="#section-2.5.2-11" class="pilcrow">¶</a></p>
@@ -2343,8 +2361,8 @@ occurrence of '%' are converted to uppercase.  The case of all
 other letters in the ARK string must be preserved.<a href="#section-3.2-3.5.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-3.2-3.6">
-            <p id="section-3.2-3.6.1">All hyphens are removed.  Implementors should be aware that non-
-ASCII hyphen-like characters (eg, U+2010 to U+2015) may arrive
+            <p id="section-3.2-3.6.1">All hyphens are removed.  Implementors should be aware that non-ASCII
+hyphen-like characters (eg, U+2010 to U+2015) may arrive
 in the place of hyphens and, if they wish, remove them.<a href="#section-3.2-3.6.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-3.2-3.7">
@@ -2399,8 +2417,8 @@ most BnF ARKs will not start with n2t.net.<a href="#section-3.3-2" class="pilcro
 <p id="section-3.3-3">Resolution in general can be seen as a multi-stage computation that
 maps a client identifier to some sort of response.  On the web, each
 resolver in the chain is an HTTP server; even if the "responder"
-(last resolver) is a proxy server that intiates a non-web sub-
-resolution process, that is invisible to the original client and out
+(last resolver) is a proxy server that initiates a non-web sub-resolution
+process, that is invisible to the original client and out
 of scope for this discussion.  A web resolution response may take on
 a variety of forms, including the return of a landing page, or a
 metadata record, or a web-based 404 Not Found message.  A given
@@ -2634,10 +2652,10 @@ you require brand visibility, that may be a fact of life.  But things
 are easier if yours is the brand of long-lived cultural memory
 institution such as a national or university library or archive.
 Well-chosen hostnames from organizations that are sheltered from the
-direct effects of a volatile marketplace can easily provide longer-
-lived global resolvers than the domain names explicitly or implicitly
+direct effects of a volatile marketplace can easily provide longer-lived
+global resolvers than the domain names explicitly or implicitly
 used as starting points for global resolution by indirection-based
-persistent identifier schemes.  For example, it is hard to imagine
+PID schemes.  For example, it is hard to imagine
 circumstances under which the Library of Congress' domain name would
 disappear sooner than, say, "handle.net".<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 <p id="section-4.4-4">For smaller libraries, archives, and preservation organizations,
@@ -2662,8 +2680,8 @@ is a misconception that the demise of DNS and of HTTP need adversely
 affect the persistence of URLs.  At such a time, certainly URLs from
 the present day might not then be actionable by our present-day
 mechanisms, but resolution systems for future non-actionable URLs are
-no harder to imagine than resolution systems for present-day non-
-actionable URNs and DOIs.  There is no more stable a namespace than
+no harder to imagine than resolution systems for present-day non-actionable
+URNs and DOIs.  There is no more stable a namespace than
 one that is dead and frozen, and that would then characterize the
 space of names bearing the "http://" or "https://" prefix.  It is
 useful to remember that just because hostnames have been carelessly
@@ -2729,8 +2747,8 @@ university and managed by its main library, the library should take
 care to reserve shoulders (semantically opaque shoulders being
 preferred) for distinct assignment streams.  Prefix-based partition
 management is typically an important responsibility of the NAA.<a href="#section-4.6-1" class="pilcrow">¶</a></p>
-<p id="section-4.6-2">This shoulder delegation approach plays out differently in two real-
-world examples: DNS names and ISBN identifiers.  In the former, the
+<p id="section-4.6-2">This shoulder delegation approach plays out differently in two real-world
+examples: DNS names and ISBN identifiers.  In the former, the
 hierarchy is deliberately exposed and in the latter it is hidden.
 Rather than using lexical boundary markers such as the period ('.')
 found in domain names, the ISBN uses a publisher prefix but doesn't
@@ -3354,7 +3372,7 @@ information objects.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="RFC0854">[RFC0854]</dt>
       <dd>
-<span class="refAuthor">Postel, J.</span> and <span class="refAuthor">J. Reynolds</span>, <span class="refTitle">"Telnet Protocol Specification"</span>, <span class="seriesInfo">STD 8</span>, <span class="seriesInfo">RFC 854</span>, <span class="seriesInfo">DOI 10.17487/RFC0854</span>, <time datetime="1983-05" class="refDate">May 1983</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc854">https://www.rfc-editor.org/rfc/rfc854</a>&gt;</span>. </dd>
+<span class="refAuthor">Postel, J.</span> and <span class="refAuthor">J. Reynolds</span>, <span class="refTitle">"Telnet Protocol Specification"</span>, <span class="seriesInfo">STD 8</span>, <span class="seriesInfo">RFC 854</span>, <span class="seriesInfo">DOI 10.17487/RFC854</span>, <time datetime="1983-05" class="refDate">May 1983</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc854">https://www.rfc-editor.org/rfc/rfc854</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC1034">[RFC1034]</dt>
       <dd>

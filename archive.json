@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:37:44.167440+00:00",
+  "timestamp": "2026-10-25T02:44:53.937885+00:00",
   "repo": "arks-org/arkspec",
   "labels": [
     {
@@ -80,6 +80,22 @@
           "updatedAt": "2025-06-27T08:32:49Z"
         }
       ]
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOGnqRK88AAAABN3-FaA",
+      "title": "More rigorously/formally describe ARK identifier syntax",
+      "url": "https://github.com/arks-org/arkspec/issues/6",
+      "state": "OPEN",
+      "author": "kinseytamsin",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Today I ended up doing a deep dive into the ARK identifier syntax in order to figure out how to put together a regular expression for a Wikidata property to only match valid ARK identifiers, and doing this based on the current text of the specification took quite a bit more close reading than is ideal. In the process of trying to make sense of it I put together an ABNF description of the syntax, so I figured I might as well offer it for possible incorporation into the spec. This uses the ABNF syntax described in [RFC 5234](https://doi.org/10.17487/rfc5234). It's a bit rough and covers the normalized form except for also representing the `ark:/` form of the prefix, but I think it's a reasonable initial draft. Is there any interest in including something like this?\n\n```\nark = ark-label-part naan \"/\" name-part\nark-label-part = \"ark:\" [\"/\"]\nname-part = [shoulder] blade\nblade = name-component [qualifiers]\nname-component = 1*(character-or-pct-encoded)\nnaan = 1*(DIGIT / beta)\nbeta = \"b\" / \"c\" / \"d\" / \"f\" / \"g\" / \"h\" / \"j\" / \"k\" / \"m\" / \"n\" / \"p\" / \"q\" / \"r\" / \"s\" / \"t\" / \"v\" / \"w\" / \"x\" / \"z\"\n  ; must be lowercase in normalized form\nshoulder = name-component\nqualifiers = 1*qualifier\nqualifier = component-path [variant-path] / variant-path\ncomponent-path = \"/\" name-component\nvariant-path = \".\" name-component\ncharacter-or-pct-encoded = non-reserved / pct-encoded\nnon-reserved = ALPHA / DIGIT / \"=\" / \"~\" / \"*\" / \"+\" / \"@\" / \"_\" / \"$\"\npct-encoded = \"%\" HEXDIG HEXDIG\n```",
+      "createdAt": "2026-08-23T08:37:40Z",
+      "updatedAt": "2026-08-23T08:37:40Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -159,7 +175,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2022-11-08T16:26:05Z",
-      "updatedAt": "2023-04-16T18:57:41Z",
+      "updatedAt": "2025-11-14T04:22:06Z",
       "baseRepository": "arks-org/arkspec",
       "baseRefName": "main",
       "baseRefOid": "9fcc4f79540630f4ff36b54b75dfbb7a85af34c0",
@@ -172,7 +188,15 @@
       "mergeCommit": {
         "oid": "71d681c54e2f8a2317fee7abba93f1b45dcab418"
       },
-      "comments": [],
+      "comments": [
+        {
+          "author": "jkunze",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Sorry, but who is user west82699-glitch ?",
+          "createdAt": "2025-11-14T04:22:06Z",
+          "updatedAt": "2025-11-14T04:22:06Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGnqRK85F4l2Z",
@@ -186,6 +210,26 @@
           "createdAt": "2022-11-08T16:28:34Z",
           "updatedAt": "2022-11-08T16:28:34Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOGnqRK87OOhhj",
+          "commit": {
+            "abbreviatedOid": "93aca16"
+          },
+          "author": "west82699-glitch",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-13T13:54:18Z",
+          "updatedAt": "2025-11-13T13:54:18Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "https://arks-\r\n   org.github.io/arkspec/draft-ark-spec.html.  Status information for\r\n   this document may be found at https://datatracker.ietf.org/doc/draft-\r\n   kunze-ark/.",
+              "createdAt": "2025-11-13T13:54:18Z",
+              "updatedAt": "2025-11-13T13:54:18Z"
+            }
+          ]
         }
       ]
     },
